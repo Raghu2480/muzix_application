@@ -33,6 +33,7 @@
 	</dependencies>
 	<modules>
 		<module>MovieService</module>
+		<module>UserAuthenticationService</module>
 	</modules>
 
 	<build>
