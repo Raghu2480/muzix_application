@@ -15,9 +15,9 @@ public class AppConfig {
                 .route(p -> p
                         .path("/api/v1/**")
                         .uri("lb://user-authentication-service"))
-//                .route(p->p
-//                .path("/api/v2/user/**","/api/v2/register")
-//                        .uri("lb://user-movie-service"))
+                .route(p->p
+                .path("/api/v2/user/**","/api/v2/register")
+                        .uri("lb://user-movie-service"))
                 .build();
     }
     @Bean
