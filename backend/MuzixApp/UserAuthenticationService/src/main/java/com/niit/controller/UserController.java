@@ -5,19 +5,16 @@ import com.niit.exception.InvalidCredentialException;
 import com.niit.exception.UserAlreadyExistsException;
 import com.niit.security.SecurityTokenGenerator;
 import com.niit.service.UserService;
-import org.apache.http.auth.InvalidCredentialsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     private UserService userService;
     private SecurityTokenGenerator securityTokenGenerator;
@@ -31,6 +28,7 @@ public class UserController {
     public ResponseEntity<?> saveUser(@RequestBody User user) throws UserAlreadyExistsException {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
+
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody User user) throws InvalidCredentialException
     {

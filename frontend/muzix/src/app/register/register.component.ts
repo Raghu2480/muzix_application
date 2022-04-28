@@ -15,19 +15,19 @@ export class RegisterComponent implements OnInit {
   }
 
   RegistrationForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    emailId: new FormControl('', [Validators.required, Validators.email]),
+    userName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', Validators.required),
     confirmPassword: new FormControl('', Validators.required),
-    file: new FormControl('', Validators.required),
-    mobileNo: new FormControl('')
+    profilePicture: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('')
   });
-  get getName() { return this.RegistrationForm.controls['name']; }
-  get getEmailId() { return this.RegistrationForm.controls['emailId']; }
+  get getUserName() { return this.RegistrationForm.controls['userName']; }
+  get getEmail() { return this.RegistrationForm.controls['email']; }
   get getPassword() { return this.RegistrationForm.controls['password']; }
   get getConfirmPassword() { return this.RegistrationForm.controls['confirmPassword']; }
-  get getMobileNo() { return this.RegistrationForm.controls['mobileNo']; }
-  get getFile(){ return this.RegistrationForm.controls['file']; }
+  get getPhoneNumber() { return this.RegistrationForm.controls['phoneNumber']; }
+  get getProfilePicture(){ return this.RegistrationForm.controls['profilePicture']; }
 
   OnRegister() {
     console.table(this.RegistrationForm.value);
@@ -35,8 +35,10 @@ export class RegisterComponent implements OnInit {
       alert("Your password confirm password should match");
     }
     else {
+      console.log("before");
       this.register.registerBackend(this.RegistrationForm.value).subscribe();
-      console.log("Registerd successfully");      
+      console.log("Registerd successfully");   
+      console.log("after");   
     }
   }
 

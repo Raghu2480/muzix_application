@@ -12,16 +12,18 @@ public class User {
     private String userName;
     private String password;
     private String phoneNumber;
+    private String profilePicture;
     private List<Movie> movieList;
 
     public User() {
     }
 
-    public User(String email, String userName, String password, String phoneNumber, List<Movie> movieList) {
+    public User(String email, String userName, String password, String phoneNumber, String profilePicture, List<Movie> movieList) {
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
+        this.profilePicture = profilePicture;
         this.movieList = movieList;
     }
 
@@ -57,6 +59,14 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getProfilePicture() {
+        return profilePicture;
+    }
+
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
     public List<Movie> getMovieList() {
         return movieList;
     }
@@ -72,6 +82,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", profilePicture='" + profilePicture + '\'' +
                 ", movieList=" + movieList +
                 '}';
     }
