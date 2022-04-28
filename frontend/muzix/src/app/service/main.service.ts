@@ -19,8 +19,8 @@ export class MainService {
   registerBackend(RegistrationForm: any) {
     console.log(" services works..");
     console.log(RegistrationForm);
-    // const registerObservable = this.httpClient.post<any>('http://localhost:8080/register', RegistrationForm);
-    const registerObservable = this.httpClient.post<any>('http://localhost:3000/registers', RegistrationForm);
+    const registerObservable = this.httpClient.post<any>('http://localhost:8081/api/v2/register', RegistrationForm);
+    // const registerObservable = this.httpClient.post<any>('http://localhost:3000/registers', RegistrationForm);
 
     alert("backend Registered Successfully!!!");
     this.router.navigate(['/', 'login']);
@@ -30,17 +30,17 @@ export class MainService {
   // login service
 
   getData(LoginForm: any) {
-    // this.httpClient.get<any>("http://localhost:8080/api/v1/user-service/users")
-    this.httpClient.get<any>("http://localhost:3000/registers")
+    this.httpClient.get<any>("http://localhost:8085/api/v1/login")
+    // this.httpClient.get<any>("http://localhost:3000/registers")
       .subscribe((loggedData: any) => {
         console.log("login logg data");
         console.log(loggedData);
         console.log("------++++++-----");
         this.logdata = loggedData;
         for (this.i = 0; this.i < this.logdata.length; this.i++) {
-          if (LoginForm.emailId === this.logdata[this.i].emailId && LoginForm.password === this.logdata[this.i].password) {
+          if (LoginForm.email === this.logdata[this.i].email && LoginForm.password === this.logdata[this.i].password) {
             this.isLoggedIn=true;
-           this.customerId= this.logdata[this.i].userId;
+           this.customerId= this.logdata[this.i].email;
            console.log("id of user");
            console.log(this.customerId);
             alert("loggedin!!");
