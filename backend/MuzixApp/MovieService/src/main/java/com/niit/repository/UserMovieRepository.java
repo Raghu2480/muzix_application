@@ -1,6 +1,6 @@
-package com.niit.MovieService.repository;
+package com.niit.repository;
 
-import com.niit.MovieService.domain.User;
+import com.niit.domain.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserMovieRepository extends MongoRepository<User,String> {

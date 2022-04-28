@@ -1,4 +1,4 @@
-package com.niit.MovieService.domain;
+package com.niit.domain;
 
 public class Genre {
     private int id;

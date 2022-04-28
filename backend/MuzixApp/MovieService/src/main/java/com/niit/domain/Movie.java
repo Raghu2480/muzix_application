@@ -1,4 +1,4 @@
-package com.niit.MovieService.domain;
+package com.niit.domain;
 
 import java.util.List;
 

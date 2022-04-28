@@ -1,4 +1,4 @@
-package com.niit.MovieService.domain;
+package com.niit.domain;
 
 public class SpokenLanguage {
     private String english_name;

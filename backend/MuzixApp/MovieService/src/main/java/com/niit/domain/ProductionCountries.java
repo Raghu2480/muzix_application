@@ -1,4 +1,4 @@
-package com.niit.MovieService.domain;
+package com.niit.domain;
 
 public class ProductionCountries {
     private String iso_3166_1;
