@@ -1,0 +1,13 @@
+{
+  "registers": [
+    {
+      "name": "raghu",
+      "emailId": "r@gmail.com",
+      "password": "1234",
+      "confirmPassword": "1234",
+      "file": "581-5819580_user-client-client-images-png-clipart.png",
+      "mobileNo": "1234567890",
+      "id": 1
+    }
+  ]
+}
