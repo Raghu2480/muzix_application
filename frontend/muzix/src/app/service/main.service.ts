@@ -28,7 +28,6 @@ export class MainService {
   }
 
   // login service
-
   getData(LoginForm: any) {
     this.httpClient.get<any>("http://localhost:8085/api/v1/login")
     // this.httpClient.get<any>("http://localhost:3000/registers")

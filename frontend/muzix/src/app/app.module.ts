@@ -22,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardsComponent } from './cards/cards.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     LoginComponent,
     HomeComponent,
     SidebarComponent,
-    DashboardComponent
+    DashboardComponent,
+    CardsComponent
   ],
   imports: [
     BrowserModule,

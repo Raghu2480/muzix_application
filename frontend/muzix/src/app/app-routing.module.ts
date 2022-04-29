@@ -7,33 +7,33 @@ import { RegisterComponent } from './register/register.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
-  {
-    path: "",
-    component: SidebarComponent,
-    children:[
-      {
-        path:"login",
-        component:LoginComponent
-      },
-      {
-        path: "register",
-        component: RegisterComponent
-      },
-      {
-        path: "",
-        redirectTo: "login",
-        pathMatch: 'full'
-      }
-    ]
-  },
-  {
-    path:"home",
-    component:HomeComponent
-  },
-  {
-    path:"dashboard",
-    component:DashboardComponent
-  }
+  // {
+  //   path: "",
+  //   component: SidebarComponent,
+  //   children:[
+  //     {
+  //       path:"login",
+  //       component:LoginComponent
+  //     },
+  //     {
+  //       path: "register",
+  //       component: RegisterComponent
+  //     },
+  //     {
+  //       path: "",
+  //       redirectTo: "login",
+  //       pathMatch: 'full'
+  //     }
+  //   ]
+  // },
+  // {
+  //   path:"home",
+  //   component:HomeComponent
+  // },
+  // {
+  //   path:"dashboard",
+  //   component:DashboardComponent
+  // }
 ];
 
 @NgModule({
