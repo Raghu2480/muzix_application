@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { MainService } from '../service/main.service';
-import { RegisterService } from '../service/register.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +10,6 @@ import { RegisterService } from '../service/register.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-
-  // constructor(private login:MainService) { }
-  // email:any;
 
   ngOnInit(): void {
   }
@@ -41,14 +36,14 @@ export class LoginComponent implements OnInit {
       return this.LoginForm.controls['email']
     }
     
-  constructor(private registerservie:RegisterService,private authservice:AuthService,public router:Router) {}
+  constructor(private register:MainService,private authservice:AuthService,public router:Router) {}
   
   onSubmit(){
     console.log(this.LoginForm.value);
     
   }
   loggedin(): void {
-    const b=this.registerservie.login(this.LoginForm.value).subscribe((a)=>{
+    const b=this.register.login(this.LoginForm.value).subscribe((a)=>{
       console.log(a); 
       this.authenticationToken=a;
       this.signin=this.authservice.login();

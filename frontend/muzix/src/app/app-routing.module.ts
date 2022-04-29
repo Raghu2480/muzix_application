@@ -5,16 +5,17 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { RegisterComponent } from './register/register.component';
+import { SearchItemsComponent } from './search-items/search-items.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
     path: "",
     component: SidebarComponent,
-    children:[
+    children: [
       {
-        path:"login",
-        component:LoginComponent
+        path: "login",
+        component: LoginComponent
       },
       {
         path: "register",
@@ -28,16 +29,20 @@ const routes: Routes = [
     ]
   },
   {
-    path:"home",
-    component:HomeComponent
+    path: "home",
+    component: HomeComponent
   },
   {
-    path:"dashboard",
-    component:DashboardComponent
+    path: "dashboard",
+    component: DashboardComponent
   },
   {
-    path:"movie-info",
-    component:MovieInfoComponent
+    path: "movie-info",
+    component: MovieInfoComponent
+  }, 
+  {
+    path: "search-items",
+    component: SearchItemsComponent
   }
 ];
 

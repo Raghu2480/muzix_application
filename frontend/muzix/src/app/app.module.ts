@@ -25,6 +25,7 @@ import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
+import { SearchItemsComponent } from './search-items/search-items.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { MovieInfoComponent } from './movie-info/movie-info.component';
     SidebarComponent,
     DashboardComponent,
     CardsComponent,
-    MovieInfoComponent
+    MovieInfoComponent,
+    SearchItemsComponent
   ],
   imports: [
     BrowserModule,

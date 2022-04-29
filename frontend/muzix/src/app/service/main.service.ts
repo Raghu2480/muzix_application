@@ -2,14 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MovieApiService } from './movie-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
 
-  constructor(private httpClient:HttpClient,private router: Router,private url:MovieApiService) { }
+  constructor(private httpClient:HttpClient,private router: Router) { }
   redirectUrl: string = "";
   isLoggedIn: boolean = false;
   logdata: any;
@@ -17,7 +16,6 @@ export class MainService {
   i: any;
 
   // register service
-
   registerBackend(RegistrationForm: any) {
     console.log(" services works..");
     console.log(RegistrationForm);
@@ -28,6 +26,12 @@ export class MainService {
     this.router.navigate(['/', 'login']);
     return registerObservable;
   }
+
+  // login register service ts
+  login(data:any){
+    return this.httpClient.post("http://localhost:8085/api/v1/login",data);
+  }
+
 
   // login service
   getData(LoginForm: any) {

@@ -9,6 +9,10 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class MovieService {
+  // private apiKey: string = "906a6c7099bc82b8424ff2afe6fa712b";
+  // url: any;
+  // constructor(private http: HttpClient) { }
+  // private urlMovieDB: string = "https://api.themoviedb.org/3"
   constructor(private http: HttpClient,private router:Router) { }
   movieInfo: any;
   selectedMovie(data: any) {
@@ -24,4 +28,12 @@ export class MovieService {
     let url = "https://api.themoviedb.org/3/discover/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b"
     return this.http.get<any>(url);
   }
+
+  // / get all search movies
+  // buscarMovie(pelicula: string) {
+  //   let searchUrl = `${this.urlMovieDB}/search/movie?api_key=${this.apiKey}&language=es&query=
+  //   ${pelicula}&page=1&callback=JSONP_CALLBACK`
+  //   return this.http.get<any>(searchUrl);
+  //   // return this.http.get<any>(searchUrl).pipe(map(res => res.json()))
+  // }
 }
