@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieApiService } from '../service/movie-api.service';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-home',
@@ -7,25 +7,22 @@ import { MovieApiService } from '../service/movie-api.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  populares: any[] = [];
-  last: any[] = [];
-  child: any[] = [];
-  private apiKey: string = "e4500ded31029b9e96905a77971a355b";
-  private urlMovieDB: string = "https://api.themoviedb.org/3";
-  video$:any=[];
+  movies:any=[]
+  allMovies:any=[]
 
-  constructor(private videoService: VideoService,private movieServiceApi: MovieApiService) {
-    this.videoService.video$.pipe(map(this.addRelativeTime)).subscribe((data:any)=>{
-      this.video$ = data;
-      this.getMovies();
-    });
+  constructor(private movieService: MovieService) { 
+    this.getMovies();
   }
 
-  // constructor() {
-    
-  //  }
-
   ngOnInit(): void {
+  }
+  getMovies(){
+    this.movieService.getAllMovies().subscribe(res=>{
+      this.movies=res;
+      // console.log(this.movies.results);
+      this.allMovies=this.movies.results;
+      console.log(this.allMovies);
+    })
   }
 
   // getMovie(id:string){
