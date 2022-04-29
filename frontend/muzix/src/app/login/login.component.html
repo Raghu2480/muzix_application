@@ -8,12 +8,11 @@
                         <form [formGroup]="LoginForm" (ngSubmit)="loggedin()">
                             <div class="row">
                                 <!-- <div class="col-md-6 mb-4"> -->
-                                    <div class="form-outline">
-                                        <input type="text" class="form-control form-control-lg"
-                                            formControlName="emailId" />
-                                        <label class="form-label" for="Email">Email</label>
-                                    </div>
-                                    <span *ngIf="getEmailId.invalid && getEmailId.touched">email is invalid</span>
+                                <div class="form-outline">
+                                    <input type="text" class="form-control form-control-lg" formControlName="email" />
+                                    <label class="form-label" for="Email">Email</label>
+                                </div>
+                                <span *ngIf="getEmail.invalid && getEmail.touched">email is invalid</span>
                                 <!-- </div> -->
                             </div>
                             <div class="row">
@@ -21,8 +20,7 @@
                                 <!-- <div class="col-md-6 mb-4"> -->
 
                                 <div class="form-outline">
-                                    <input type="text" formControlName="password"
-                                        class="form-control form-control-lg" />
+                                    <input type="text" formControlName="password" class="form-control form-control-lg" />
                                     <label class="form-label" for="Password">Password</label>
                                 </div>
 
