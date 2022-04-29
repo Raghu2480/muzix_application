@@ -10,7 +10,7 @@
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" formControlName="name" class="form-control form-control-lg" />
+                    <input type="text" formControlName="userName" class="form-control form-control-lg" />
                     <label class="form-label" for="Name">User Name</label>
                   </div>
 
@@ -20,10 +20,10 @@
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" class="form-control form-control-lg" formControlName="emailId" />
+                    <input type="text" class="form-control form-control-lg" formControlName="email" />
                     <label class="form-label" for="Email">Email</label>
                   </div>
-                  <span *ngIf="getEmailId.invalid && getEmailId.touched">email is invalid</span>
+                  <span *ngIf="getEmail.invalid && getEmail.touched">email is invalid</span>
                 </div>
               </div>
               <div class="row">
@@ -50,7 +50,7 @@
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" formControlName="mobileNo" class="form-control form-control-lg" />
+                    <input type="text" formControlName="phoneNumber" class="form-control form-control-lg" />
                     <label class="form-label" for="mobile">Mobile Number</label>
                   </div>
 
@@ -61,7 +61,7 @@
                 <div class="col-md-6 mb-4">
                   <div class="col">
                     <label for="file" class="name">Profile Picture</label>
-                    <input formControlName="file" type="file" class="full-width" (change)="upload($event)">
+                    <input formControlName="profilePicture" type="file" class="full-width" (change)="upload($event)">
                   </div>
 
                 </div>
