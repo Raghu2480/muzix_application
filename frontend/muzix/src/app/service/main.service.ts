@@ -55,9 +55,9 @@ export class MainService {
 
 
   // video service
-  video$  : Observable<Array<any>> = new Observable(
-    observer=>{
-      observer.next(this.url.items);
-    }
-  );
+  // video$  : Observable<Array<any>> = new Observable(
+  //   observer=>{
+  //     observer.next(this.url.items);
+  //   }
+  // );
 }

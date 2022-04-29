@@ -24,6 +24,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { HttpClientJsonpModule, HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
+import { MovieInfoComponent } from './movie-info/movie-info.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CardsComponent } from './cards/cards.component';
     HomeComponent,
     SidebarComponent,
     DashboardComponent,
-    CardsComponent
+    CardsComponent,
+    MovieInfoComponent
   ],
   imports: [
     BrowserModule,

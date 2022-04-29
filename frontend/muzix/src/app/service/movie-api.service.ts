@@ -14,7 +14,7 @@ constructor(private http:HttpClient){}
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
 
   getAllMovies() {
-    this.url="https://api.themoviedb.org/3/movie/550?api_key=906a6c7099bc82b8424ff2afe6fa712b";
+    // this.url="https://api.themoviedb.org/3/movie/550?api_key=906a6c7099bc82b8424ff2afe6fa712b";
     return this.http.get<any>(this.url);
   }
 }
