@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("api/v2")
 @CrossOrigin("http://localhost:4200")
-
 public class UserMovieController {
     private UserMovieService userMovieService;
     private ResponseEntity<?> responseEntity;

@@ -61,4 +61,5 @@ export class LoginComponent implements OnInit {
     this.LoginForm.reset({})
 
   }
+ 
 }

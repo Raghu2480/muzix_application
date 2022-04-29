@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { MovieApiService } from './movie-api.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MainService {
 
-  constructor(private httpClient:HttpClient,private router: Router) { }
+  constructor(private httpClient:HttpClient,private router: Router,private url:MovieApiService) { }
   redirectUrl: string = "";
   isLoggedIn: boolean = false;
   logdata: any;
@@ -50,4 +52,12 @@ export class MainService {
         alert("login failed");      
       });
   }
+
+
+  // video service
+  video$  : Observable<Array<any>> = new Observable(
+    observer=>{
+      observer.next(this.url.items);
+    }
+  );
 }
