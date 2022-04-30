@@ -1,9 +1,6 @@
-
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +33,12 @@ export class MovieService {
   //   return this.http.get<any>(searchUrl);
   //   // return this.http.get<any>(searchUrl).pipe(map(res => res.json()))
   // }
+  searchMovie(searchItem:any){
+    console.log("i am inside the movie service");
+    console.log(searchItem);
+    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b&language=es&query=${searchItem}`
+    console.log(searchUrl);
+    return this.http.get(searchUrl);
+    // return this.http.getRequest("searchUrl");
+  }
 }

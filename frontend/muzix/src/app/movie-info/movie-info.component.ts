@@ -8,17 +8,13 @@ import { MovieService } from '../service/movie.service';
 })
 export class MovieInfoComponent implements OnInit {
   selectedMovieData: any;
-  constructor(private mviS: MovieService) {
-    // this.mov();
-  }
+  constructor(private mviS: MovieService) { }
 
   ngOnInit(): void {
     console.log("-------------------");
     this.selectedMovieData = this.mviS.movieInfo;
     console.log(this.selectedMovieData);
   }
-  // mov() {
-    
-  // }
+  
 
 }

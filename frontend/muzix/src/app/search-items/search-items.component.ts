@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-search-items',
@@ -7,13 +8,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./search-items.component.css']
 })
 export class SearchItemsComponent implements OnInit {
-  // buscar: string;
-  peliculas: any[] = [];
+  
+  searchItem: any;
+  searchedMovies: any=[];
+  allSearchedMovies: any=[];
   isReady = false
-  constructor( private route: ActivatedRoute) {
+  constructor( private route: ActivatedRoute,private movser:MovieService) {
     this.route.params.subscribe(param => {
-      if (param['texto']) {
-        // this.buscar = param.texto;
+      if (param['text']) {
+        this.searchItem = param['text'];
         this.buscarMovie();
       }
     })
@@ -22,9 +25,12 @@ export class SearchItemsComponent implements OnInit {
   ngOnInit() {
   }
   buscarMovie() {
-    // this.mvS.buscarMovie(this.buscar).subscribe(resp => {
-    //   this.peliculas = resp.results;
-    //   this.isReady = true;
-    // })
+    this.movser.searchMovie(this.searchItem).subscribe(resp=>{
+      this.searchedMovies=resp;
+      this.allSearchedMovies=this.searchedMovies.results;
+      console.log(this.allSearchedMovies);
+      this.isReady=true;
+    })
+    
   }
 }

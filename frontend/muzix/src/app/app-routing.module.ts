@@ -9,41 +9,44 @@ import { SearchItemsComponent } from './search-items/search-items.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
+  // {
+  //   path: "",
+  //   component: SidebarComponent,
+  //   children: [
+  //     {
+  //       path: "login",
+  //       component: LoginComponent
+  //     },
+  //     {
+  //       path: "register",
+  //       component: RegisterComponent
+  //     },
+  //     {
+  //       path: "",
+  //       redirectTo: "login",
+  //       pathMatch: 'full'
+  //     }
+  //   ]
+  // },  
   {
     path: "",
-    component: SidebarComponent,
-    children: [
-      {
-        path: "login",
-        component: LoginComponent
-      },
-      {
-        path: "register",
-        component: RegisterComponent
-      },
+    component: DashboardComponent,
+    children:[
       {
         path: "",
-        redirectTo: "login",
-        pathMatch: 'full'
+        component: HomeComponent
+      },
+      {
+        path: "search-items/:text",
+        component: SearchItemsComponent
       }
     ]
   },
   {
-    path: "home",
-    component: HomeComponent
-  },
-  {
-    path: "dashboard",
-    component: DashboardComponent
-  },
-  {
     path: "movie-info",
     component: MovieInfoComponent
-  }, 
-  {
-    path: "search-items",
-    component: SearchItemsComponent
-  }
+  } 
+ 
 ];
 
 @NgModule({
