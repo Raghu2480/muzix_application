@@ -10,6 +10,7 @@ import { MovieService } from '../service/movie.service';
 export class HomeComponent implements OnInit {
   movies: any = []
   allMovies: any = []
+  currentPg:number=1;
   constructor(private movieService: MovieService) {
     this.getMovies();
   }
@@ -17,9 +18,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   getMovies() {
-    this.movieService.getAllMovies().subscribe(res => {
+    this.movieService.getAllMovies(this.currentPg).subscribe(res => {
       this.movies = res;
-      // console.log(this.movies.results);
+      console.log(this.movies);
       this.allMovies = this.movies.results;
       console.log(this.allMovies);
     })
@@ -27,6 +28,14 @@ export class HomeComponent implements OnInit {
   movieDetails(data: any) {
     console.log(data);
     this.movieService.selectedMovie(data);
+  }
+  decreasePage(){
+    this.currentPg--;
+    this.getMovies();
+  }
+  increasePage(){
+    this.currentPg++;
+    this.getMovies();
   }
 
 }

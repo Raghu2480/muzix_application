@@ -12,6 +12,7 @@ export class MovieService {
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
   constructor(private http: HttpClient,private router:Router) { }
   movieInfo: any;
+  currentPage:number=1
   selectedMovie(data: any) {
     this.movieInfo = data;
     this.router.navigate(['/', 'movie-info']);
@@ -21,8 +22,8 @@ export class MovieService {
   // private apikey:String="";
   // private urlMovieDb:String="https://api.themoviedb.org/3/movie/550?api_key=906a6c7099bc82b8424ff2afe6fa712b";
 
-  getAllMovies() {
-    let url = "https://api.themoviedb.org/3/discover/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b"
+  getAllMovies(currentPage:number) {
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b&page=${currentPage}`
     return this.http.get<any>(url);
   }
 
@@ -33,12 +34,17 @@ export class MovieService {
   //   return this.http.get<any>(searchUrl);
   //   // return this.http.get<any>(searchUrl).pipe(map(res => res.json()))
   // }
-  searchMovie(searchItem:any){
+  searchMovie(searchItem:any,currentPage:number){
     console.log("i am inside the movie service");
     console.log(searchItem);
-    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b&language=es&query=${searchItem}`
+    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b&language=es&query=${searchItem}&page=${currentPage}`
     console.log(searchUrl);
     return this.http.get(searchUrl);
     // return this.http.getRequest("searchUrl");
+  }
+  storeSearchedMovieToJson(movies:any){
+    console.log("i am going to store this data in json");
+    console.log(movies);
+    return this.http.post<any>("http://localhost:3000",movies);
   }
 }
