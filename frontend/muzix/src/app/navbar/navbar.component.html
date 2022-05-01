@@ -1,0 +1,10 @@
+<mat-toolbar>
+    <span>Muzix</span>
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchTxt>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <div class="spacer"></div>
+    <a mat-button (click)="logout()"> logout</a>
+</mat-toolbar>
+<router-outlet></router-outlet>

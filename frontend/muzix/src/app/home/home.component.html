@@ -1,3 +1,22 @@
+<mat-grid-list class="grid-container" cols="4" rowHeight="1.50:2.60">
+  <mat-grid-tile *ngFor="let data of allMovies">
+    <mat-card class="example-card" (click)="movieDetails(data)">
+      <div>
+        <!-- <img mat-card-image src={{data.backdrop_path&&data.poster_path}}> -->
+        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}">
+        <mat-card-title>{{data.original_title}}</mat-card-title>
+      </div>
+      <mat-card-content>
+        <mat-card-subtitle>vote: {{data.vote_average}} </mat-card-subtitle>
+        <mat-card-subtitle>Release Date:{{data.release_date}} </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!-- ==================================================================== -->
+
+
 <!-- <div class="container">
     <div class="row">
         <div class="col-lg-4">
@@ -26,27 +45,30 @@
     </div>
 </div> -->
 <!-- ---------------------------------------------------------------------------------- -->
+<!-- for percent -->
+<!-- <div class="user_score_chart 57d1b0c49251410cae0003fd" data-percent="78.0" data-track-color="#204529"
+  data-bar-color="#21d07a">
+  <div class="percent">
+    <span class="icon icon-r78"></span>
+  </div>
+  <canvas height="34" width="34"></canvas>
+</div> -->
+<!-- ----------------------------------------------------------------------------------------------- -->
+<!-- desc on card -->
+<!-- <div class="content">
+  <div class="consensus tight">
+    <div class="outer_ring">
+      <div class="user_score_chart 5a9ad8750e0a2605e4024fd9" data-percent="75.0" data-track-color="#204529" data-bar-color="#21d07a">
+        <div class="percent">
+          
+            <span class="icon icon-r75"></span>
+          
+        </div>
+      <canvas height="34" width="34"></canvas></div>
+    </div>
+  </div>
 
-<mat-grid-list class="grid-container" cols="4" rowHeight="1.50:2.60">
-  <!-- <div class="row"> -->
-    <!-- <div class="col-lg-4 col-md-4 col-sm-12"> -->
-      <mat-grid-tile *ngFor="let data of allMovies">
-        <mat-card class="example-card"  (click)="movieDetails(data)">
-          <div>
-            <!-- <img mat-card-image src={{data.backdrop_path&&data.poster_path}}> -->
-            <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}">
-            <mat-card-title>{{data.original_title}}</mat-card-title>
-          </div>
-          <mat-card-content>
-            <mat-card-subtitle>vote: {{data.vote_average}} </mat-card-subtitle>
-            <mat-card-subtitle>Release Date:{{data.release_date}}            </mat-card-subtitle>
-
-          </mat-card-content>
-          <!-- <mat-card-actions>
-            <button routerLink="order-pizza" routerLinkActive="active" mat-raised-button color="primary">fav</button>
-          </mat-card-actions> -->
-        </mat-card>
-      </mat-grid-tile>
-    <!-- </div> -->
-  <!-- </div> -->
-</mat-grid-list>
+  <h2><a href="/movie/508947" title="Turning Red">Turning Red</a></h2>
+  <p>Mar 10, 2022</p>
+</div> -->
+<!-- ----------------------------------------------------------------------------------------------- -->

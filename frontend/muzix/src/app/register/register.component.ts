@@ -9,7 +9,7 @@ import { MainService } from '../service/main.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private register:MainService) { }
+  constructor(private registerS:MainService) { }
 
   ngOnInit(): void {
   }
@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     }
     else {
       console.log("before");
-      this.register.registerBackend(this.RegistrationForm.value).subscribe();
+      this.registerS.registerBackend(this.RegistrationForm.value).subscribe();
       console.log("Registerd successfully");   
       console.log("after");   
     }

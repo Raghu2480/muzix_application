@@ -26,6 +26,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { SearchItemsComponent } from './search-items/search-items.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SearchItemsComponent } from './search-items/search-items.component';
     DashboardComponent,
     CardsComponent,
     MovieInfoComponent,
-    SearchItemsComponent
+    SearchItemsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

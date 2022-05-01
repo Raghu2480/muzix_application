@@ -7,8 +7,7 @@ import { MovieService } from '../service/movie.service';
   templateUrl: './search-items.component.html',
   styleUrls: ['./search-items.component.css']
 })
-export class SearchItemsComponent implements OnInit {
-  
+export class SearchItemsComponent implements OnInit {  
   searchItem: any;
   searchedMovies: any=[];
   allSearchedMovies: any=[];

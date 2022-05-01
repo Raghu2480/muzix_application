@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class MovieService {
-  // private apiKey: string = "906a6c7099bc82b8424ff2afe6fa712b";
+  private MyAPIKey: string = "906a6c7099bc82b8424ff2afe6fa712b";
   // url: any;
   // constructor(private http: HttpClient) { }
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
@@ -22,7 +22,7 @@ export class MovieService {
   // private urlMovieDb:String="https://api.themoviedb.org/3/movie/550?api_key=906a6c7099bc82b8424ff2afe6fa712b";
 
   getAllMovies() {
-    let url = "https://api.themoviedb.org/3/discover/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b"
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.MyAPIKey}`;
     return this.http.get<any>(url);
   }
 
@@ -36,7 +36,7 @@ export class MovieService {
   searchMovie(searchItem:any){
     console.log("i am inside the movie service");
     console.log(searchItem);
-    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=906a6c7099bc82b8424ff2afe6fa712b&language=es&query=${searchItem}`
+    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=${this.MyAPIKey}&language=es&query=${searchItem}`
     console.log(searchUrl);
     return this.http.get(searchUrl);
     // return this.http.getRequest("searchUrl");

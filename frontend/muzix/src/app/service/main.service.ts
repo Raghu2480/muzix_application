@@ -57,6 +57,12 @@ export class MainService {
       });
   }
 
+  // logout service
+  logout(){
+    this.isLoggedIn=false;
+    this.router.navigate(['/','login']);
+  }
+
 
   // video service
   // video$  : Observable<Array<any>> = new Observable(
