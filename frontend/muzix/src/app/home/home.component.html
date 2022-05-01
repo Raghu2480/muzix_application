@@ -2,7 +2,6 @@
   <mat-grid-tile *ngFor="let data of allMovies">
     <mat-card class="example-card" (click)="movieDetails(data)">
       <div>
-        <!-- <img mat-card-image src={{data.backdrop_path&&data.poster_path}}> -->
         <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{data.poster_path }}">
         <mat-card-title>{{data.original_title}}</mat-card-title>
       </div>
@@ -13,62 +12,7 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
-
-<!-- ==================================================================== -->
-
-
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-lg-4">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <div mat-card-avatar class="example-header-image"></div>
-                  <mat-card-title>Shiba Inu</mat-card-title>
-                  <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-                </mat-card-header>
-                
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-
-                <mat-card-content>
-                  <p>
-                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                    bred for hunting.
-                  </p>
-                </mat-card-content>
-                <mat-card-actions>
-                  <button mat-button>LIKE</button>
-                  <button mat-button>SHARE</button>
-                </mat-card-actions>
-              </mat-card>
-        </div>
-    </div>
-</div> -->
-<!-- ---------------------------------------------------------------------------------- -->
-<!-- for percent -->
-<!-- <div class="user_score_chart 57d1b0c49251410cae0003fd" data-percent="78.0" data-track-color="#204529"
-  data-bar-color="#21d07a">
-  <div class="percent">
-    <span class="icon icon-r78"></span>
-  </div>
-  <canvas height="34" width="34"></canvas>
-</div> -->
-<!-- ----------------------------------------------------------------------------------------------- -->
-<!-- desc on card -->
-<!-- <div class="content">
-  <div class="consensus tight">
-    <div class="outer_ring">
-      <div class="user_score_chart 5a9ad8750e0a2605e4024fd9" data-percent="75.0" data-track-color="#204529" data-bar-color="#21d07a">
-        <div class="percent">
-          
-            <span class="icon icon-r75"></span>
-          
-        </div>
-      <canvas height="34" width="34"></canvas></div>
-    </div>
-  </div>
-
-  <h2><a href="/movie/508947" title="Turning Red">Turning Red</a></h2>
-  <p>Mar 10, 2022</p>
-</div> -->
-<!-- ----------------------------------------------------------------------------------------------- -->
+<div style="margin-left: 350px; ">
+  <button [disabled]="currentPg<=1" (click)="decreasePage()">Previous Page</button><button [disabled]="currentPg>=33349"
+    (click)="increasePage()">Next Page</button>
+</div>

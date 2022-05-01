@@ -1,25 +1,4 @@
 <app-cards *ngIf="isReady" [movies]="allSearchedMovies"></app-cards>
-<!-- <mat-grid-list class="grid-container" cols="4" rowHeight="1.50:2.60"> -->
-    <!-- <div class="row"> -->
-    <!-- <div class="col-lg-4 col-md-4 col-sm-12"> -->
-    <!-- <mat-grid-tile *ngFor="let data of searchedMovies">
-        <mat-card class="example-card" >
-            <div> -->
-              <!-- <img mat-card-image src={{data.backdrop_path&&data.poster_path}}> -->
-              <!-- <img mat-card-image src=" https://image.tmdb.org/t/p/w300/{{data.poster_path }}">
-            <mat-card-title>{{data.original_title}}</mat-card-title>
-            </div>
-            <mat-card-content>
-                <mat-card-subtitle>vote: {{data.vote_average}} </mat-card-subtitle>
-                <mat-card-subtitle>Release Date:{{data.release_date}} </mat-card-subtitle>
-
-            </mat-card-content> -->
-            <!-- <mat-card-actions>
-              <button routerLink="order-pizza" routerLinkActive="active" mat-raised-button color="primary">fav</button>
-            </mat-card-actions> -->
-        <!-- </mat-card>
-    </mat-grid-tile> -->
-    <!-- </div> -->
-    <!-- </div> -->
-<!-- </mat-grid-list> -->
-<!-- (click)="movieDetails(data)"" -->
+<div style="margin-left: 350px; ">
+    <button [disabled]="currentPg<=1" (click)="decreasePage()">Previous Page</button><button [disabled]="currentPg>=33349" (click)="increasePage()">Next Page</button>
+</div>

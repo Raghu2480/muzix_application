@@ -62,12 +62,4 @@ export class MainService {
     this.isLoggedIn=false;
     this.router.navigate(['/','login']);
   }
-
-
-  // video service
-  // video$  : Observable<Array<any>> = new Observable(
-  //   observer=>{
-  //     observer.next(this.url.items);
-  //   }
-  // );
 }

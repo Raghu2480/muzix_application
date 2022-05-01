@@ -26,7 +26,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardsComponent } from './cards/cards.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { SearchItemsComponent } from './search-items/search-items.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { MatFormFieldModule } from '@angular/material/form-field'
 
 @NgModule({
   declarations: [
@@ -39,7 +40,6 @@ import { NavbarComponent } from './navbar/navbar.component';
     CardsComponent,
     MovieInfoComponent,
     SearchItemsComponent,
-    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +57,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    YouTubePlayerModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

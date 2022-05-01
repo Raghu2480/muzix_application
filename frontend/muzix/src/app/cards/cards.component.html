@@ -1,18 +1,14 @@
-<!-- 
-<div class="row ">
-
-  <div class="card-columns">
-    <div *ngFor="let movie of movies" class="card" >
-      <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path }}"
-        class="card-img-top  ">
-      <img *ngIf="!movie.poster_path"
-        src="https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg" class="card-img-top ">
-      <div class="card-body">
-        <h5 class="card-title">{{movie.title}}</h5>
-        <button class="btn btn-info btn-block " [routerLink]="['/pelicula',movie.id]">
-          Ver mas...
-        </button>
+<mat-grid-list class="grid-container" cols="4" rowHeight="1.50:2.60">
+  <mat-grid-tile *ngFor="let movie of movies">
+    <mat-card class="example-card">
+      <div>
+        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{movie.poster_path }}">
+        <mat-card-title>{{movie.original_title}}</mat-card-title>
       </div>
-    </div>
-  </div>
-</div> -->
+      <mat-card-content>
+        <mat-card-subtitle>vote: {{movie.vote_average}} </mat-card-subtitle>
+        <mat-card-subtitle>Release Date:{{movie.release_date}} </mat-card-subtitle>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

@@ -9,15 +9,15 @@
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>muzix</span>
-      <!-- <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" #searchTxt>
+      <span>Muzix</span>
+      <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)"
+        style="margin-left: 200px;display: flex;">
+        <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search" aria-label="Search" #searchTxt>
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> -->
+      </form> 
     </mat-toolbar>
 
     <!-- Add Content Here -->

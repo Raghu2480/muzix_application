@@ -36,17 +36,17 @@ export class LoginComponent implements OnInit {
       return this.LoginForm.controls['email']
     }
     
-  constructor(private register:MainService,private authservice:AuthService,public router:Router) {}
+  constructor(private registerS:MainService,private authService:AuthService,public router:Router) {}
   
   onSubmit(){
     console.log(this.LoginForm.value);
     
   }
   loggedin(): void {
-    const b=this.register.login(this.LoginForm.value).subscribe((a)=>{
+    const b=this.registerS.login(this.LoginForm.value).subscribe((a)=>{
       console.log(a); 
       this.authenticationToken=a;
-      this.signin=this.authservice.login();
+      this.signin=this.authService.login();
       this.router.navigate(["dashboard"])
     },
     err=>{
@@ -54,7 +54,6 @@ export class LoginComponent implements OnInit {
       this.LoginForm.reset();
     })
     this.LoginForm.reset({})
-
   }
  
 }

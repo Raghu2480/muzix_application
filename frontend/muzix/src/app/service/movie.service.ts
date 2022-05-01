@@ -6,37 +6,28 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class MovieService {
-  private MyAPIKey: string = "906a6c7099bc82b8424ff2afe6fa712b";
-  // url: any;
-  // constructor(private http: HttpClient) { }
+  private MyAPIKey: string = "906a6c7099bc82b8424ff2afe6fa712b"; 
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
-  constructor(private http: HttpClient,private router:Router) { }
+  constructor(private http: HttpClient,private router:Router) {}
   movieInfo: any;
+  currentPage:number=1
+
+  // for particular movie
   selectedMovie(data: any) {
     this.movieInfo = data;
     this.router.navigate(['/', 'movie-info']);
   }
-
-
-  // private apikey:String="";
-  // private urlMovieDb:String="https://api.themoviedb.org/3/movie/550?api_key=906a6c7099bc82b8424ff2afe6fa712b";
-
-  getAllMovies() {
-    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.MyAPIKey}`;
+  // To display all Movies
+  getAllMovies(currentPage:number) {
+    let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.MyAPIKey}&page=${currentPage}`;
     return this.http.get<any>(url);
   }
 
-  // / get all search movies
-  // buscarMovie(pelicula: string) {
-  //   let searchUrl = `${this.urlMovieDB}/search/movie?api_key=${this.apiKey}&language=es&query=
-  //   ${pelicula}&page=1&callback=JSONP_CALLBACK`
-  //   return this.http.get<any>(searchUrl);
-  //   // return this.http.get<any>(searchUrl).pipe(map(res => res.json()))
-  // }
-  searchMovie(searchItem:any){
+  // Search movies
+  searchMovie(searchItem:any,currentPage:number){
     console.log("i am inside the movie service");
     console.log(searchItem);
-    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=${this.MyAPIKey}&language=es&query=${searchItem}`
+    let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=${this.MyAPIKey}&language=es&query=${searchItem}&page=${currentPage}`
     console.log(searchUrl);
     return this.http.get(searchUrl);
     // return this.http.getRequest("searchUrl");
