@@ -22,6 +22,11 @@ export class MovieService {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.MyAPIKey}&page=${currentPage}`;
     return this.http.get<any>(url);
   }
+  getParticularMovieDetails(movieId:number)
+  {
+    let url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.MyAPIKey}&append_to_response=credits`;
+    return this.http.get<any>(url);
+  }
 
   // Search movies
   searchMovie(searchItem:any,currentPage:number){
@@ -33,3 +38,4 @@ export class MovieService {
     // return this.http.getRequest("searchUrl");
   }
 }
+//https://stackroute-space.slack.com//api.themoviedb.org/3/movie/$%7Bid%7D?api_key=MY_API_KEY&append_to_response=credits

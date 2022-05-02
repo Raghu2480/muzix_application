@@ -1,10 +1,49 @@
-{{selectedMovieData.original_title}}
-<mat-card class="example-card" >
-    <div>
-        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }}">
-        <mat-card-title>{{selectedMovieData.original_title}}</mat-card-title>
+<!-- {{selectedMovieData.original_title}} -->
+<!-- <div id="intro" style="background-image: url(https://mdbootstrap.com/img/new/fluid/city/018.jpg)"> -->
+<div id="bgimg"
+    style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)),url(https://image.tmdb.org/t/p/w300/{{selectedMovieData.backdrop_path}});">
+    <div class="container" style="width: max-content;">
+        <div id="infoCard">
+            <div class="row" style="margin-top: 75px; margin-bottom: 75px;">
+                <div class="col">
+                    <mat-card class="example-card">
+                        <!-- <div> -->
+                        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }} ">
+                        <!-- <mat-card-title>{{selectedMovieData.original_title}}</mat-card-title> -->
+                        <!-- </div> -->
+                        <!-- <mat-card-content>
+                            <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
+                        </mat-card-content> -->
+                    </mat-card>
+                </div>
+                <div class="col">
+                    <h1 style="color: white;">
+                        {{selectedMovieData.original_title}}
+                    </h1><br>
+                    <h2>{{selectedMovieData.release_date}}</h2>
+                    <h2>Overview : <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
+                    </h2>
+                    <h2>vote_average
+                        {{selectedMovieData.vote_average}}
+                    </h2>
+                    <h2>vote_count
+                        {{selectedMovieData.vote_count}}
+                    </h2>
+                    <h1> genre_ids</h1>
+                    <h1 *ngFor="let genre of particularMovieGenre">
+                        {{genre.name}},
+                    </h1>
+                    <button>Add to Favourites</button>
+
+                </div>
+            </div>
+
+            <!-- <h2 class="10">
+                <a href="/movie/414906-the-batman">{{selectedMovieData.original_title}}</a>
+                 <span class="tag release_date">(2022)</span>
+              </h2> -->
+
+        </div>
+
     </div>
-    <mat-card-content>
-        <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
-    </mat-card-content>
-</mat-card>
+</div>

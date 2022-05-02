@@ -1,4 +1,16 @@
 mat-card {
     width: 400px;
-    height: 700px;
+    height: 600px;
 }
+#bgimg {
+    /* background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");
+    height: 100vh; */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+  }
+  #infoCard{
+    opacity: 1;
+    display: flex;
+  }
