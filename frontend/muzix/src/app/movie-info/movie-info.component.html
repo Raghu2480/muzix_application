@@ -1,10 +1,34 @@
-{{selectedMovieData.original_title}}
-<mat-card class="example-card" >
-    <div>
-        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }}">
-        <mat-card-title>{{selectedMovieData.original_title}}</mat-card-title>
+<div id="main">
+    <!-- <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.backdrop_path }}"> -->
+    <div class="row">
+        <div class="col">
+            <mat-card class="example-card">
+                <div>
+                    <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }}">
+                    <!-- <mat-card-title>{{selectedMovieData.original_title}}</mat-card-title> -->
+                </div>
+                <!-- <mat-card-content>
+
+            </mat-card-content> -->
+            </mat-card>
+        </div>
+        <i class="fa-solid fa-heart"></i>
+        <div class="col">
+            vote_average
+            {{selectedMovieData.vote_average}}
+            <h2>vote_count
+                {{selectedMovieData.vote_count}}
+            </h2>
+        </div>
+        <!-- <h1>
+            {{selectedMovieData.original_title}}
+        </h1>
+        {{selectedMovieData.release_date}}
+
+        <h3>Overview : <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
+        </h3> -->
+        <a id="favourite" class="no_click add_to_account_list favourite" href="#">
+            <span class="glyphicons_v2 heart white false"></span></a>
     </div>
-    <mat-card-content>
-        <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
-    </mat-card-content>
-</mat-card>
+
+</div>

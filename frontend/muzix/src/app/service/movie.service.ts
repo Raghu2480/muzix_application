@@ -22,6 +22,12 @@ export class MovieService {
     let url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.MyAPIKey}&page=${currentPage}`;
     return this.http.get<any>(url);
   }
+  // get all genere
+  getAllMovieGenre()
+  {
+    let url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.MyAPIKey}&language=en-US`;
+    return this.http.get<any>(url);
+  }
 
   // Search movies
   searchMovie(searchItem:any,currentPage:number){
