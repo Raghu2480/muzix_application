@@ -27,7 +27,8 @@ import { CardsComponent } from './cards/cards.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
 import { SearchItemsComponent } from './search-items/search-items.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
-import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { MatFormFieldModule } from '@angular/material/form-field'
     MatListModule,
     HttpClientJsonpModule,
     YouTubePlayerModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

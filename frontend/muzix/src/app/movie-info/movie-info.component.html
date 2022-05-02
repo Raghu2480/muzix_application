@@ -1,34 +1,37 @@
-<div id="main">
-    <!-- <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.backdrop_path }}"> -->
-    <div class="row">
-        <div class="col">
-            <mat-card class="example-card">
-                <div>
-                    <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }}">
-                    <!-- <mat-card-title>{{selectedMovieData.original_title}}</mat-card-title> -->
+<div id="bgimg" style="background-image: url(https://image.tmdb.org/t/p/w300/{{selectedMovieData.backdrop_path}});">
+    <div class="container" style="width: max-content;">
+        <div id="infoCard">
+            <div class="row" style="margin-top: 75px; margin-bottom: 75px;">
+                <div class="col">
+                    <mat-card class="example-card movie-img">
+                        <img mat-card-image src="https://image.tmdb.org/t/p/w300/{{selectedMovieData.poster_path }} ">
+                    </mat-card>
                 </div>
-                <!-- <mat-card-content>
-
-            </mat-card-content> -->
-            </mat-card>
+                <div class="col content">
+                    <mat-card class="cardContent">
+                        <mat-card-title>
+                            {{selectedMovieData.original_title}}
+                        </mat-card-title><br>
+                        <mat-card-subtitle>Released:&nbsp;&nbsp;&nbsp; {{selectedMovieData.release_date}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle>Overview :&nbsp;&nbsp;&nbsp; {{selectedMovieData.overview}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle>vote_average : &nbsp;&nbsp;&nbsp; {{selectedMovieData.vote_average}}
+                        </mat-card-subtitle>
+                        <mat-card-subtitle>vote_count :&nbsp;&nbsp;&nbsp; {{selectedMovieData.vote_count}}
+                        </mat-card-subtitle>
+                        <div style="display:flex;">
+                            <mat-card-subtitle> genre_ids :&nbsp;&nbsp;&nbsp;</mat-card-subtitle>
+                            <mat-card-subtitle *ngFor="let genre of particularMovieGenre">
+                                {{genre.name}}&nbsp;.&nbsp;
+                            </mat-card-subtitle>
+                        </div>
+                        <a mat-button matTooltip="Add to Favorite">
+                            <mat-icon>favorite</mat-icon>
+                        </a>
+                    </mat-card>
+                </div>
+            </div>
         </div>
-        <i class="fa-solid fa-heart"></i>
-        <div class="col">
-            vote_average
-            {{selectedMovieData.vote_average}}
-            <h2>vote_count
-                {{selectedMovieData.vote_count}}
-            </h2>
-        </div>
-        <!-- <h1>
-            {{selectedMovieData.original_title}}
-        </h1>
-        {{selectedMovieData.release_date}}
-
-        <h3>Overview : <mat-card-subtitle> {{selectedMovieData.overview}} </mat-card-subtitle>
-        </h3> -->
-        <a id="favourite" class="no_click add_to_account_list favourite" href="#">
-            <span class="glyphicons_v2 heart white false"></span></a>
     </div>
-
 </div>

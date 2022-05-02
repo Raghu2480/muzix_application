@@ -8,27 +8,25 @@ import { MovieService } from '../service/movie.service';
 })
 export class MovieInfoComponent implements OnInit {
   selectedMovieData: any;
-  genres:any;
-  constructor(private mviS: MovieService) {
-    this.getGenre();
-   }
+  // selectedMovieGenres:any;
+  genres:any=[];
+  particularMovieGenre:any;
+  constructor(private mviS: MovieService) { }
 
   ngOnInit(): void {
     console.log("-------------------");
     this.selectedMovieData = this.mviS.movieInfo;
     console.log(this.selectedMovieData);
-  }
-
-  getGenre()
-  {
-    this.mviS.getAllMovieGenre().subscribe(res=>{
-      this.genres=res;
-      console.log(this.genres);
-      if(this.selectedMovieData.genere_ids==this.genres){
-        this.genres=this.selectedMovieData.genere_ids.name;
-      }
-    });
+    this.getMovieData();
   }
   
-
+  getMovieData()
+  {
+    this.mviS.getParticularMovieDetails(this.selectedMovieData.id).subscribe(res=>{
+      this.genres=res;
+      console.log("this is genres");
+      console.log(this.genres);
+      this.particularMovieGenre=this.genres.genres;  
+    });
+  }
 }
