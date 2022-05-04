@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     
   }
   loggedin(): void {
+    this.registerS.email=this.LoginForm.value.email;
     const b=this.registerS.login(this.LoginForm.value).subscribe((a)=>{
       console.log(a); 
       this.authenticationToken=a;

@@ -14,6 +14,7 @@ export class MainService {
   logdata: any;
   customerId:any;
   i: any;
+  email:any;
 
   // register service
   registerBackend(RegistrationForm: any) {
@@ -26,6 +27,9 @@ export class MainService {
     this.router.navigate(['/', 'login']);
     return registerObservable;
   }
+  getUser(email:any){
+    this.httpClient.get<any>('http://localhost:8081/api/v2/registers/'+email);
+  }
 
   // login register service ts
   login(data:any){
@@ -36,7 +40,6 @@ export class MainService {
   // login service
   getData(LoginForm: any) {
     this.httpClient.get<any>("http://localhost:8085/api/v1/login")
-    // this.httpClient.get<any>("http://localhost:3000/registers")
       .subscribe((loggedData: any) => {
         console.log("login logg data");
         console.log(loggedData);

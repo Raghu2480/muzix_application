@@ -9,12 +9,12 @@
                 </div>
                 <div class="col content">
                     <mat-card class="cardContent">
-                        <mat-card-title>
+                        <mat-card-title style="font-size: 30px;">
                             {{selectedMovieData.original_title}}
                         </mat-card-title><br>
-                        <mat-card-subtitle>Released:&nbsp;&nbsp;&nbsp; {{selectedMovieData.release_date}}
+                        <mat-card-subtitle style="font-size: 20px;">Released:&nbsp;&nbsp;&nbsp; {{selectedMovieData.release_date}}
                         </mat-card-subtitle>
-                        <mat-card-subtitle>Overview :&nbsp;&nbsp;&nbsp; {{selectedMovieData.overview}}
+                        <mat-card-subtitle style="font-size: 15px;">Overview :&nbsp;&nbsp;&nbsp; {{selectedMovieData.overview}}
                         </mat-card-subtitle>
                         <mat-card-subtitle>vote_average : &nbsp;&nbsp;&nbsp; {{selectedMovieData.vote_average}}
                         </mat-card-subtitle>
@@ -29,6 +29,10 @@
                         <a mat-button matTooltip="Add to Favorite">
                             <mat-icon>favorite</mat-icon>
                         </a>
+                        <a routerLink="/recommended" mat-button matTooltip="View Recommended Movies">
+                            <mat-icon>Recommend</mat-icon>
+                        </a>
+                        <!-- <button style="font-size: 15px;">View Recommended Movies</button> -->
                     </mat-card>
                 </div>
             </div>

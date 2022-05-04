@@ -10,7 +10,8 @@ export class MovieService {
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
   constructor(private http: HttpClient,private router:Router) {}
   movieInfo: any;
-  currentPage:number=1
+  currentPage:number=1;
+  recommendedMovieId:any;
 
   // for particular movie
   selectedMovie(data: any) {
@@ -38,6 +39,12 @@ export class MovieService {
     console.log(searchUrl);
     return this.http.get(searchUrl);
     // return this.http.getRequest("searchUrl");
+  }
+  //to get all the recommended movies
+  getAllRecommendedMovies(recMovieId:number)
+  {
+    let recommendedUrl=`https://api.themoviedb.org/3/movie/${recMovieId}/recommendations?api_key=${this.MyAPIKey}&language=en-US&page=1`;
+    return this.http.get(recommendedUrl);
   }
 }
 //https://stackroute-space.slack.com//api.themoviedb.org/3/movie/$%7Bid%7D?api_key=MY_API_KEY&append_to_response=credits

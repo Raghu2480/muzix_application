@@ -9,7 +9,8 @@ import { MovieService } from '../service/movie.service';
 export class MovieInfoComponent implements OnInit {
   selectedMovieData: any;
   // selectedMovieGenres:any;
-  genres:any=[];
+  movies:any=[];
+
   particularMovieGenre:any;
   constructor(private mviS: MovieService) { }
 
@@ -23,10 +24,11 @@ export class MovieInfoComponent implements OnInit {
   getMovieData()
   {
     this.mviS.getParticularMovieDetails(this.selectedMovieData.id).subscribe(res=>{
-      this.genres=res;
+      this.movies=res;
       console.log("this is genres");
-      console.log(this.genres);
-      this.particularMovieGenre=this.genres.genres;  
+      console.log(this.movies);
+      this.mviS.recommendedMovieId=this.movies.id;
+      this.particularMovieGenre=this.movies.genres;  
     });
   }
 }

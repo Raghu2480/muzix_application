@@ -23,7 +23,7 @@
 .cardContent {
   /* opacity: 0.2; */
   background: linear-gradient(rgb(61, 61, 61), rgb(250, 142, 142)); 
-  color: red;
+  color: white;
   /* font-weight: bolder; */
   font-size: 40%;
 }

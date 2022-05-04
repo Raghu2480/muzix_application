@@ -29,6 +29,7 @@ import { SearchItemsComponent } from './search-items/search-items.component';
 import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import { RecommedationComponent } from './recommedation/recommedation.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     CardsComponent,
     MovieInfoComponent,
     SearchItemsComponent,
+    RecommedationComponent,
   ],
   imports: [
     BrowserModule,
