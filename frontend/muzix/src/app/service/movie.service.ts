@@ -12,11 +12,20 @@ export class MovieService {
   movieInfo: any;
   currentPage:number=1;
   recommendedMovieId:any;
+  email:any;
+  favMovieObj:any={};
+  // x="550";
+  // y:number=+this.x;
 
   // for particular movie
   selectedMovie(data: any) {
     this.movieInfo = data;
     this.router.navigate(['/', 'movie-info']);
+  }
+  //to get all the favourite movies from the Api by Movie Id.
+  getAllFavouriteMoviesFromApi(movieId:number){
+    let url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${this.MyAPIKey}&append_to_response=credits`;
+    return this.http.get<any>(url);
   }
   // To display all Movies
   getAllMovies(currentPage:number) {
@@ -37,6 +46,7 @@ export class MovieService {
     console.log(searchItem);
     let searchUrl=`https://api.themoviedb.org/3/search/movie?api_key=${this.MyAPIKey}&language=es&query=${searchItem}&page=${currentPage}`
     console.log(searchUrl);
+    // console.log(this.y);
     return this.http.get(searchUrl);
     // return this.http.getRequest("searchUrl");
   }
@@ -45,6 +55,18 @@ export class MovieService {
   {
     let recommendedUrl=`https://api.themoviedb.org/3/movie/${recMovieId}/recommendations?api_key=${this.MyAPIKey}&language=en-US&page=1`;
     return this.http.get(recommendedUrl);
+  }
+  addMovieToFavourites(movieId:number,movieName:any){
+    
+    this.favMovieObj.movieId=movieId;
+    this.favMovieObj.movieName=movieName;
+    this.favMovieObj.email=this.email;
+    console.log(this.favMovieObj);
+    return this.http.post("http://localhost:8081/api/v3/register",this.favMovieObj);
+  }
+  getFavouriteMoviesByEmail()
+  {
+    return this.http.get("http://localhost:8086/api/v4/favourite/"+this.email)
   }
 }
 //https://stackroute-space.slack.com//api.themoviedb.org/3/movie/$%7Bid%7D?api_key=MY_API_KEY&append_to_response=credits

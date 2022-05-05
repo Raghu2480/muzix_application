@@ -30,6 +30,7 @@ import { YouTubePlayerModule } from '@angular/youtube-player';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { RecommedationComponent } from './recommedation/recommedation.component';
+import { FavouriteComponent } from './favourite/favourite.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { RecommedationComponent } from './recommedation/recommedation.component'
     MovieInfoComponent,
     SearchItemsComponent,
     RecommedationComponent,
+    FavouriteComponent,
   ],
   imports: [
     BrowserModule,

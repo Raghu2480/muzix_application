@@ -26,12 +26,20 @@
                                 {{genre.name}}&nbsp;.&nbsp;
                             </mat-card-subtitle>
                         </div>
-                        <a mat-button matTooltip="Add to Favorite">
+                        <a mat-button matTooltip="Add to Favorite" (click)="addToFavourite(selectedMovieData)">
                             <mat-icon>favorite</mat-icon>
                         </a>
                         <a routerLink="/recommended" mat-button matTooltip="View Recommended Movies">
                             <mat-icon>Recommend</mat-icon>
                         </a>
+
+                        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="font-size: 15px;">
+                            <strong>Success !!!</strong> Movie added to your Favourites
+                            <button (click)="closeAlert()" type="button" class="close" data-dismis="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
                         <!-- <button style="font-size: 15px;">View Recommended Movies</button> -->
                     </mat-card>
                 </div>

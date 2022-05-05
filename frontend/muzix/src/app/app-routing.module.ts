@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FavouriteComponent } from './favourite/favourite.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
@@ -10,31 +11,31 @@ import { SearchItemsComponent } from './search-items/search-items.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
-  // {
-  //   path: "",
-  //   component: SidebarComponent,
-  //   children: [
-  //     {
-  //       path: "login",
-  //       component: LoginComponent
-  //     },
-  //     {
-  //       path: "register",
-  //       component: RegisterComponent
-  //     },
-  //     {
-  //       path: "",
-  //       redirectTo: "login",
-  //       pathMatch: 'full'
-  //     }
-  //   ]
-  // },  
+  {
+    path: "",
+    component: SidebarComponent,
+    children: [
+      {
+        path: "login",
+        component: LoginComponent
+      },
+      {
+        path: "register",
+        component: RegisterComponent
+      },
+      {
+        path: "",
+        redirectTo: "login",
+        pathMatch: 'full'
+      }
+    ]
+  },  
   {
     path: "",
     component: DashboardComponent,
     children:[
       {
-        path: "",
+        path: "dashboard",
         component: HomeComponent
       },
       {
@@ -48,7 +49,11 @@ const routes: Routes = [
       {
         path: "movie-info",
         component: MovieInfoComponent
-      } 
+      },
+      {
+        path: "favourite",
+        component:FavouriteComponent
+      }
     ]
   }
   

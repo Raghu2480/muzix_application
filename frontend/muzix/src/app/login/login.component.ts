@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../service/auth.service';
 import { MainService } from '../service/main.service';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-login',
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
       return this.LoginForm.controls['email']
     }
     
-  constructor(private registerS:MainService,private authService:AuthService,public router:Router) {}
+  constructor(private registerS:MainService,private authService:AuthService,public router:Router,private movieService:MovieService) {}
   
   onSubmit(){
     console.log(this.LoginForm.value);
@@ -44,6 +45,7 @@ export class LoginComponent implements OnInit {
   }
   loggedin(): void {
     this.registerS.email=this.LoginForm.value.email;
+    this.movieService.email=this.LoginForm.value.email;
     const b=this.registerS.login(this.LoginForm.value).subscribe((a)=>{
       console.log(a); 
       this.authenticationToken=a;
