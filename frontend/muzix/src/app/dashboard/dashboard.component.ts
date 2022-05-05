@@ -39,5 +39,9 @@ email:any;
     //   console.log(res);
     // })
   }
+  logout()
+  {
+    this.router.navigate(["/login"])
+  }
 
 }

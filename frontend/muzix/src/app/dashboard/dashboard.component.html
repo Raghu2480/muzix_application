@@ -1,27 +1,43 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
-    <mat-nav-list>
-      <a mat-list-item routerLink="favourite">Favourite Movies</a>
-      <a mat-list-item routerLink="recommended">Recommended</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="favourite">
+                <mat-icon>favorite</mat-icon> Favourite Movies</a>
+            <a mat-list-item routerLink="recommended">
+                <mat-icon>recommend</mat-icon> Recommended
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>Muzix</span>
-      <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)"
-        style="margin-left: 200px;display: flex;">
-        <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search" aria-label="Search" #searchTxt>
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form> 
-    </mat-toolbar>
+            <span>Muzix</span>
+            <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)" style="margin-left: 200px;display: flex;">
+                <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search Movie By Name" aria-label="Search" #searchTxt>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon >settings</mat-icon> Setting
+              </button>
+            <mat-menu #menu="matMenu">
+                <a mat-menu-item href="#">
+                    <mat-icon>perm_identity</mat-icon>Update Profile</a>
+                <a mat-menu-item routerLink="/login">
+                    <mat-icon>logout</mat-icon>Log Out</a>
+                <a mat-menu-item href="#" disabled="default">
+                    <mat-icon>help</mat-icon>Help</a>
+                <a mat-menu-item href="#" disabled="default">
+                    <mat-icon>notifications_off</mat-icon>Disable Alerts</a>
+                <a mat-menu-item href="#" disabled="default">
+                    <mat-icon>feedback</mat-icon>send_feedback</a>
+            </mat-menu>
+        </mat-toolbar>
 
-    <!-- Add Content Here -->
-    <!-- <app-home></app-home> -->
-    <router-outlet></router-outlet>
-  </mat-sidenav-content>
+        <!-- Add Content Here -->
+        <!-- <app-home></app-home> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
 </mat-sidenav-container>
