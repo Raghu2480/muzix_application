@@ -17,6 +17,7 @@ export class FavouriteComponent implements OnInit {
   ngOnInit(): void {
     this.getFavouriteMovies();
     console.log(this.favourites); 
+    
   }
   getFavouriteMovies(){
     this.movieService.getFavouriteMoviesByEmail().subscribe(res=>{
