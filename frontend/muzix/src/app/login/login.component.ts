@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit {
     get getEmail(){
       return this.LoginForm.controls['email']
     }
+    get getPassword(){
+      return this.LoginForm.controls['password']
+    }
     
   constructor(private mainService:MainService,private authService:AuthService,public router:Router,private movieService:MovieService) {}
   

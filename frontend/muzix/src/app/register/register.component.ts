@@ -17,10 +17,10 @@ export class RegisterComponent implements OnInit {
   RegistrationForm = new FormGroup({
     userName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
+    password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]),
     confirmPassword: new FormControl('', Validators.required),
     profilePicture: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('')
+    phoneNumber: new FormControl('', Validators.required)
   });
   get getUserName() { return this.RegistrationForm.controls['userName']; }
   get getEmail() { return this.RegistrationForm.controls['email']; }
