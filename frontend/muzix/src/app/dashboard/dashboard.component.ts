@@ -10,18 +10,18 @@ import { MainService } from '../service/main.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit{
-email:any;
+export class DashboardComponent implements OnInit {
+  email: any;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver,private router:Router,private mainService:MainService) { }
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private mainService: MainService) { }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    this.email=this.mainService.email;
+    this.email = this.mainService.email;
     console.log(this.email);
     // this.mainService.getUser(this.email).subscribe((res: any)=>{
     //   console.log(res);
@@ -34,13 +34,12 @@ email:any;
     console.log(text);
     this.router.navigate(['search-items', text])
   }
-  getUserByEmail(){
+  getUserByEmail() {
     // this.mainService.getUser(this.email).subscribe((res:any)=>{
     //   console.log(res);
     // })
   }
-  logout()
-  {
+  logout() {
     this.router.navigate(["/login"])
   }
 
