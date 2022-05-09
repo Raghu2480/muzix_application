@@ -13,7 +13,7 @@ export class MovieInfoComponent implements OnInit {
   favouriteMovieId:number=0;
   favouriteMovieName:any;
   particularMovieGenre:any;
-  alert: boolean=false
+  alert: boolean=false;
   constructor(private mviS: MovieService) { }
 
   ngOnInit(): void {
@@ -21,8 +21,7 @@ export class MovieInfoComponent implements OnInit {
     this.selectedMovieData = this.mviS.movieInfo;
     console.log(this.selectedMovieData);
     this.getMovieData();
-  }
-  
+  }  
   getMovieData()
   {
     this.mviS.getParticularMovieDetails(this.selectedMovieData.id).subscribe(res=>{
@@ -35,11 +34,12 @@ export class MovieInfoComponent implements OnInit {
   }
   addToFavourite(selectedMovieData:any){
     this.favouriteMovieId=selectedMovieData.id;
-    this.favouriteMovieName=selectedMovieData.original_title;
-    
-    this.mviS.addMovieToFavourites(this.favouriteMovieId,this.favouriteMovieName).subscribe(res=>{
-      console.log(res);
-      
+    this.favouriteMovieName=selectedMovieData.original_title;    
+    this.mviS.addMovieToFavourites(this.favouriteMovieId,this.favouriteMovieName).subscribe((res)=>{
+      console.log(res);      
+    },
+    err=>{
+      alert("this movie already added to your favourite list");
     });
     this.alert=true;
   }

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MovieService } from '../service/movie.service';
 
 @Component({
   selector: 'app-cards',
@@ -8,9 +9,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CardsComponent implements OnInit {
   
   @Input() movies:any;
-  constructor() { }
+  constructor(private movieS: MovieService) { }
 
   ngOnInit(): void {
   }
-
+  movieDetails(movie:any){
+    console.log(movie);
+    this.movieS.selectedMovie(movie);
+  }
 }

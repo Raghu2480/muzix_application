@@ -8,37 +8,34 @@ import { Observable } from 'rxjs';
 })
 export class MainService {
 
-  constructor(private httpClient:HttpClient,private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
   redirectUrl: string = "";
   isLoggedIn: boolean = false;
   logdata: any;
-  customerId:any;
+  customerId: any;
   i: any;
-  email:any;
+  email: any;
 
   // register service
-  registerBackend(RegistrationForm: any) {
+  registerUser(RegistrationForm: any) {
     console.log(" services works..");
     console.log(RegistrationForm);
     const registerObservable = this.httpClient.post<any>('http://localhost:8081/api/v2/register', RegistrationForm);
-    // const registerObservable = this.httpClient.post<any>('http://localhost:3000/registers', RegistrationForm);
-
-    alert("backend Registered Successfully!!!");
-    this.router.navigate(['/', 'login']);
+    alert("Registered Successfully!!!");
+    this.router.navigate(['/auth/login']);
     return registerObservable;
   }
-  getUser(email:any){
-    this.httpClient.get<any>('http://localhost:8081/api/v2/registers/'+email);
+
+  getUser() {
+    return this.httpClient.get<any>("http://localhost:8081/api/v2/registers/" + this.email);
   }
 
   // login register service ts
-  login(data:any){
-    return this.httpClient.post("http://localhost:8085/api/v1/login",data);
+  login(data: any) {
+    return this.httpClient.post("http://localhost:8085/api/v1/login", data);
   }
 
-
-  // login service 
-  
+  // login service   
   // getData(LoginForm: any) {
   //   this.httpClient.get<any>("http://localhost:8085/api/v1/login")
   //     .subscribe((loggedData: any) => {
@@ -60,10 +57,4 @@ export class MainService {
   //       alert("login failed");      
   //     });
   // }
-
-  // logout service
-  logout(){
-    this.isLoggedIn=false;
-    this.router.navigate(['/','login']);
-  }
 }

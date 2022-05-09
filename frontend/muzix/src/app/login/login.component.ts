@@ -27,30 +27,32 @@ export class LoginComponent implements OnInit {
   //   this.login.getData(this.LoginForm.value);
   // }
 
-  authenticationToken: any = "";
-  signin: any;
-  LoginForm = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl('', [Validators.required])
-  })
-  get getEmail() {
-    return this.LoginForm.controls['email']
-  }
-
-  constructor(private registerS: MainService, private authService: AuthService, public router: Router, private movieService: MovieService) { }
-
-  onSubmit() {
+  authenticationToken:any="";
+    signin:any;
+    LoginForm=new FormGroup({
+      email:new FormControl('',[Validators.email, Validators.required]),
+      password:new FormControl('',[Validators.required])
+    })
+    get getEmail(){
+      return this.LoginForm.controls['email']
+    }
+    get getPassword(){
+      return this.LoginForm.controls['password']
+    }
+    
+  constructor(private mainService:MainService,private authService:AuthService,public router:Router,private movieService:MovieService) {}
+  
+  onSubmit(){
     console.log(this.LoginForm.value);
   }
   loggedin(): void {
-    this.registerS.email = this.LoginForm.value.email;
-    this.movieService.email = this.LoginForm.value.email;
-    const b = this.registerS.login(this.LoginForm.value).subscribe((a) => {
-      console.log("login");
-      console.log(a);
-      this.authenticationToken = a;
-      this.signin = this.authService.login();
-      this.router.navigate(["dashboard"])
+    this.mainService.email=this.LoginForm.value.email;
+    this.movieService.email=this.LoginForm.value.email;
+    this.mainService.login(this.LoginForm.value).subscribe((a)=>{
+      console.log(a); 
+      this.authenticationToken=a;
+      this.signin=this.authService.login();
+      this.router.navigate(["dashboard/home"]);
     },
       err => {
         alert("Invalid username or password");

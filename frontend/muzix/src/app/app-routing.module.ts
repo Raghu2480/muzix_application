@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FavouriteComponent } from './favourite/favourite.component';
+import { AuthGuard } from './guard/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { MovieInfoComponent } from './movie-info/movie-info.component';
@@ -12,7 +13,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 
 const routes: Routes = [
   {
-    path: "",
+    path: "auth",
     component: SidebarComponent,
     children: [
       {
@@ -22,20 +23,15 @@ const routes: Routes = [
       {
         path: "register",
         component: RegisterComponent
-      },
-      {
-        path: "",
-        redirectTo: "login",
-        pathMatch: 'full'
       }
     ]
-  },  
+  },
   {
-    path: "",
+    path: "dashboard",
     component: DashboardComponent,
-    children:[
+    children: [
       {
-        path: "dashboard",
+        path: "home",
         component: HomeComponent
       },
       {
@@ -44,20 +40,26 @@ const routes: Routes = [
       },
       {
         path: "recommended",
-        component:RecommedationComponent
+        canActivate: [AuthGuard],
+        component: RecommedationComponent
       },
       {
         path: "movie-info",
+        canActivate: [AuthGuard],
         component: MovieInfoComponent
       },
       {
         path: "favourite",
-        component:FavouriteComponent
+        canActivate: [AuthGuard],
+        component: FavouriteComponent
       }
     ]
+  },
+  {
+    path: "",
+    redirectTo: "dashboard/home",
+    pathMatch: 'full'
   }
-  
- 
 ];
 
 @NgModule({

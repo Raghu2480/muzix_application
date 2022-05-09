@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { MainService } from '../service/main.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,13 +13,19 @@ import { MainService } from '../service/main.service';
 })
 export class DashboardComponent implements OnInit {
   email: any;
+  user: any;
+  userName: any;
+  userProfileImg: any;
+  isLogIn: any = this.authS.isLoggedIn;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver, private router: Router, private mainService: MainService) { }
+  constructor(private authS: AuthService, private breakpointObserver: BreakpointObserver, private router: Router, private mainService: MainService) {
+
+   }
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.email = this.mainService.email;
@@ -26,6 +33,10 @@ export class DashboardComponent implements OnInit {
     // this.mainService.getUser(this.email).subscribe((res: any)=>{
     //   console.log(res);
     // });
+    if (this.isLogIn == true) {
+      console.log("user by email");
+      this.getUserByEmail();
+    }
   }
   searchingItems(text: string) {
     if (text.length == 0) {
@@ -35,12 +46,16 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['search-items', text])
   }
   getUserByEmail() {
-    // this.mainService.getUser(this.email).subscribe((res:any)=>{
-    //   console.log(res);
-    // })
+    this.mainService.getUser().subscribe(res => {
+      this.user = res;
+      this.userName = this.user.userName;
+      this.userProfileImg = this.user.profilePicture;
+      console.log(this.user);
+    });
+    // console.log(this.mainService.getUser());
   }
-  logout() {
-    this.router.navigate(["/login"])
+  loggedOut() {
+    this.authS.logout();
   }
 
 }
