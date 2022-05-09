@@ -27,8 +27,8 @@ export class MainService {
     this.router.navigate(['/', 'login']);
     return registerObservable;
   }
-  getUser(email:any){
-    this.httpClient.get<any>('http://localhost:8081/api/v2/registers/'+email);
+  getUser(){
+    return this.httpClient.get<any>("http://localhost:8081/api/v2/registers/"+this.email);
   }
 
   // login register service ts

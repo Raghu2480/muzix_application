@@ -12,6 +12,9 @@ import { MainService } from '../service/main.service';
 })
 export class DashboardComponent implements OnInit{
 email:any;
+user:any;
+userName:any;
+userProfileImg:any;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -26,6 +29,7 @@ email:any;
     // this.mainService.getUser(this.email).subscribe((res: any)=>{
     //   console.log(res);
     // });
+    this.getUserByEmail();
   }
   searchingItems(text: string) {
     if (text.length == 0) {
@@ -35,9 +39,13 @@ email:any;
     this.router.navigate(['search-items', text])
   }
   getUserByEmail(){
-    // this.mainService.getUser(this.email).subscribe((res:any)=>{
-    //   console.log(res);
-    // })
+    this.mainService.getUser().subscribe(res=>{
+      this.user=res;
+      this.userName=this.user.userName;
+      this.userProfileImg=this.user.profilePicture;
+      console.log(this.user);
+    });
+    // console.log(this.mainService.getUser());
   }
   logout()
   {

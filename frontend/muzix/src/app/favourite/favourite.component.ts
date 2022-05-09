@@ -22,12 +22,15 @@ export class FavouriteComponent implements OnInit {
     this.movieService.getFavouriteMoviesByEmail().subscribe(res=>{
       this.allFavouriteMovies=res;
       this.allFavouriteMovies.forEach((s:any)=>{
-        this.movieService.getAllFavouriteMoviesFromApi(+s.movieId).subscribe(response=>{
+        this.movieService.getAllFavouriteMoviesFromApi(+s.movieId).subscribe((response)=>{
           // console.log("hi");
           // console.log(response);
           this.favourites.push(response) ;
         });
       })
     });
+  }
+  movieDetails(data:any){
+    this.movieService.selectedMovie(data);
   }
 }

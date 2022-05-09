@@ -2,6 +2,7 @@ package com.niit.usermovieservice.controller;
 
 import com.niit.usermovieservice.domain.User;
 import com.niit.usermovieservice.exception.UserAlreadyExistsException;
+import com.niit.usermovieservice.exception.UserNotFoundException;
 import com.niit.usermovieservice.service.UserMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +29,16 @@ public class UserMovieController {
         catch(UserAlreadyExistsException e)
         {
             throw new UserAlreadyExistsException();
+        }
+        return responseEntity;
+    }
+    @GetMapping("/registers/{email}")
+    public ResponseEntity<?> getUserbyEmail(@PathVariable String email) throws UserNotFoundException {
+        try{
+            responseEntity = new ResponseEntity<>(userMovieService.getUserByEmail(email), HttpStatus.OK);
+        }catch(UserNotFoundException e)
+        {
+            throw new UserNotFoundException();
         }
         return responseEntity;
     }

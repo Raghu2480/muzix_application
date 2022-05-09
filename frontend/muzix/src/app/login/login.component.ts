@@ -37,16 +37,16 @@ export class LoginComponent implements OnInit {
       return this.LoginForm.controls['email']
     }
     
-  constructor(private registerS:MainService,private authService:AuthService,public router:Router,private movieService:MovieService) {}
+  constructor(private mainService:MainService,private authService:AuthService,public router:Router,private movieService:MovieService) {}
   
   onSubmit(){
     console.log(this.LoginForm.value);
     
   }
   loggedin(): void {
-    this.registerS.email=this.LoginForm.value.email;
+    this.mainService.email=this.LoginForm.value.email;
     this.movieService.email=this.LoginForm.value.email;
-    const b=this.registerS.login(this.LoginForm.value).subscribe((a)=>{
+    this.mainService.login(this.LoginForm.value).subscribe((a)=>{
       console.log(a); 
       this.authenticationToken=a;
       this.signin=this.authService.login();

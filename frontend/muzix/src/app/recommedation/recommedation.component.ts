@@ -18,9 +18,9 @@ export class RecommedationComponent implements OnInit {
       console.log("this is the recommended movies");
       console.log(this.allRecommendedMovies);
     });
-    
-    
-    // console.log(this.recommendedMovies);
+  }
+  movieDetails(data:any){
+    this.service.selectedMovie(data);
   }
 
 }

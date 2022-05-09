@@ -37,9 +37,12 @@ export class MovieInfoComponent implements OnInit {
     this.favouriteMovieId=selectedMovieData.id;
     this.favouriteMovieName=selectedMovieData.original_title;
     
-    this.mviS.addMovieToFavourites(this.favouriteMovieId,this.favouriteMovieName).subscribe(res=>{
+    this.mviS.addMovieToFavourites(this.favouriteMovieId,this.favouriteMovieName).subscribe((res)=>{
       console.log(res);
       
+    },
+    err=>{
+      alert("this movie already added to your favourite list");
     });
     this.alert=true;
   }
