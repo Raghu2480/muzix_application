@@ -8,10 +8,13 @@ import com.niit.usermovieservice.repository.FavouriteMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class FavouriteMovieServiceImpl implements FavouriteMovieService {
 
     private FavouriteMovieRepository favouriteMovieRepository;
+    private Optional<FavouriteMovie> favMovie;
     @Autowired
     Producer producer;
 
@@ -20,6 +23,22 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService {
         this.favouriteMovieRepository = favouriteMovieRepository;
     }
 
+    //    @Override
+//    public FavouriteMovie registerFavourite(FavouriteMovie favouriteMovie) throws MovieAlreadyExistsException {
+//        FavouriteDTO favouriteDTO = new FavouriteDTO();
+//        favouriteDTO.setMovieId(favouriteMovie.getMovieId());
+//        favouriteDTO.setMovieName(favouriteMovie.getMovieName());
+//        favouriteDTO.setEmail(favouriteMovie.getEmail());
+//        if (favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent()) {
+//                throw new MovieAlreadyExistsException();
+//        } else {
+//            favouriteMovieRepository.save(favouriteMovie);
+//            System.out.println("saved user in mongo");
+//            producer.sendMessageToRabbitMq(favouriteDTO);
+//        }
+//        return favouriteMovie;
+//    }
+
     @Override
     public FavouriteMovie registerFavourite(FavouriteMovie favouriteMovie) throws MovieAlreadyExistsException {
         FavouriteDTO favouriteDTO = new FavouriteDTO();
@@ -27,12 +46,20 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService {
         favouriteDTO.setMovieName(favouriteMovie.getMovieName());
         favouriteDTO.setEmail(favouriteMovie.getEmail());
         if (favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent()) {
+            favMovie = getFavouriteMovieByMovieId(favouriteMovie.getMovieId());
+            if (favouriteMovie.getEmail().equals(favMovie.get().getEmail())) {
                 throw new MovieAlreadyExistsException();
+            }
         } else {
             favouriteMovieRepository.save(favouriteMovie);
             System.out.println("saved user in mongo");
             producer.sendMessageToRabbitMq(favouriteDTO);
         }
+        System.out.println("===========================Movie Service============================");
+        System.out.println(favouriteMovie);
         return favouriteMovie;
+    }
+    public Optional<FavouriteMovie> getFavouriteMovieByMovieId(String movieId) {
+        return favouriteMovieRepository.findById(movieId);
     }
 }

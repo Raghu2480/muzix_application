@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "Favourite")
 public class FavouriteMovie {
-    @Id
+
     private String movieId;
     private String movieName;
     private String email;

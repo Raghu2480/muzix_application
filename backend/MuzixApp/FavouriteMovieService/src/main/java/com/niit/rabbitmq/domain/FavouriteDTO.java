@@ -1,6 +1,7 @@
 package com.niit.rabbitmq.domain;
 
 public class FavouriteDTO {
+
     private String movieId;
     private String movieName;
     private String email;

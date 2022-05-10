@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
   user: any;
   userName: any;
   userProfileImg: any;
-  isLogIn: any = this.authS.isLoggedIn;
+  isLogIn: any = this.authS._isLoggedIn;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),

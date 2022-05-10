@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FavouriteMovieRepository extends MongoRepository<FavouriteMovie, String> {
-    FavouriteMovie findByMovieId(String movieId);
-    FavouriteMovie findByEmailId(String email);
+//    FavouriteMovie findByMovie(String movieId);
+//    FavouriteMovie findByEmailId(String email);
 
 }

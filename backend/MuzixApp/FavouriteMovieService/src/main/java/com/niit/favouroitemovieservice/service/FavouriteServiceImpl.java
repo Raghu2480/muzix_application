@@ -15,17 +15,16 @@ public class FavouriteServiceImpl implements FavouriteService {
     public FavouriteServiceImpl(FavouriteRepository favouriteRepository) {
         this.favouriteRepository = favouriteRepository;
     }
-
     @Override
     public Favourite saveFavourite(Favourite favourite) throws MovieAlreadyExistsException {
         if(favouriteRepository.findById(favourite.getMovieId()).isPresent())
         {
             throw new MovieAlreadyExistsException();
         }
+        System.out.println("-----------------------------------Favrite Movie Service----------------------------------------");
         System.out.println(favourite);
         return favouriteRepository.save(favourite);
     }
-
     @Override
     public Favourite findByMovieId(String movieId){
         System.out.println("movieId"+movieId);

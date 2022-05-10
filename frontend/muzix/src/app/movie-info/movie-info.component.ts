@@ -45,6 +45,4 @@ export class MovieInfoComponent implements OnInit {
   closeAlert() {
     this.alert = false
   }
-
-
 }

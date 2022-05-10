@@ -38,9 +38,9 @@
                 <mat-icon>login</mat-icon>Sign Up
             </a>
             <mat-menu #menu="matMenu">
-                <a mat-menu-item href="#">
+                <!-- <a mat-menu-item href="#">
                     <mat-icon>perm_identity</mat-icon>Update Profile
-                </a>
+                </a> -->
                 <a *ngIf="isLogIn" mat-menu-item (click)="loggedOut()">
                     <mat-icon>logout</mat-icon>Log Out
                 </a>
