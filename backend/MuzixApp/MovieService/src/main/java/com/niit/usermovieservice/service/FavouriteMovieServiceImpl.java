@@ -8,10 +8,13 @@ import com.niit.usermovieservice.repository.FavouriteMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class FavouriteMovieServiceImpl implements FavouriteMovieService{
 
     private FavouriteMovieRepository favouriteMovieRepository;
+    private Optional<FavouriteMovie> favMovie;
     @Autowired
     Producer producer;
     @Autowired
@@ -25,9 +28,20 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService{
         favouriteDTO.setMovieId(favouriteMovie.getMovieId());
         favouriteDTO.setMovieName(favouriteMovie.getMovieName());
         favouriteDTO.setEmail(favouriteMovie.getEmail());
-        if(favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent())
+        if(favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent() )
         {
-            throw new MovieAlreadyExistsException();
+            favMovie=getFavouriteMovieByMovieId(favouriteMovie.getMovieId());
+            if(favouriteMovie.getEmail().equals(favMovie.get().getEmail()))
+            {
+                throw new MovieAlreadyExistsException();
+            }
+            else
+            {
+                favouriteMovieRepository.save(favouriteMovie);
+                System.out.println("saved user in mongo");
+                producer.sendMessageToRabbitMq(favouriteDTO);
+            }
+
         }
         else{
             favouriteMovieRepository.save(favouriteMovie);
@@ -35,5 +49,8 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService{
             producer.sendMessageToRabbitMq(favouriteDTO);
         }
         return favouriteMovie;
+    }
+    public Optional<FavouriteMovie> getFavouriteMovieByMovieId(String movieId){
+        return favouriteMovieRepository.findById(movieId);
     }
 }

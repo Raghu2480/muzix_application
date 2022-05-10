@@ -44,6 +44,7 @@ const routes: Routes = [
       },
       {
         path: "recommended",
+        
         component:RecommedationComponent
       },
       {
@@ -52,6 +53,7 @@ const routes: Routes = [
       },
       {
         path: "favourite",
+
         component:FavouriteComponent
       }
     ]
