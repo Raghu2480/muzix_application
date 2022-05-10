@@ -9,11 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class FavouriteMovieServiceImpl implements FavouriteMovieService{
+public class FavouriteMovieServiceImpl implements FavouriteMovieService {
 
     private FavouriteMovieRepository favouriteMovieRepository;
     @Autowired
     Producer producer;
+
     @Autowired
     public FavouriteMovieServiceImpl(FavouriteMovieRepository favouriteMovieRepository) {
         this.favouriteMovieRepository = favouriteMovieRepository;
@@ -21,15 +22,13 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService{
 
     @Override
     public FavouriteMovie registerFavourite(FavouriteMovie favouriteMovie) throws MovieAlreadyExistsException {
-        FavouriteDTO favouriteDTO=new FavouriteDTO();
+        FavouriteDTO favouriteDTO = new FavouriteDTO();
         favouriteDTO.setMovieId(favouriteMovie.getMovieId());
         favouriteDTO.setMovieName(favouriteMovie.getMovieName());
         favouriteDTO.setEmail(favouriteMovie.getEmail());
-        if(favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent())
-        {
-            throw new MovieAlreadyExistsException();
-        }
-        else{
+        if (favouriteMovieRepository.findById(favouriteMovie.getMovieId()).isPresent()) {
+                throw new MovieAlreadyExistsException();
+        } else {
             favouriteMovieRepository.save(favouriteMovie);
             System.out.println("saved user in mongo");
             producer.sendMessageToRabbitMq(favouriteDTO);

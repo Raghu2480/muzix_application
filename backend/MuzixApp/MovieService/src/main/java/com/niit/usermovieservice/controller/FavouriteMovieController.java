@@ -20,14 +20,13 @@ public class FavouriteMovieController {
     public FavouriteMovieController(FavouriteMovieService favouriteMovieService) {
         this.favouriteMovieService = favouriteMovieService;
     }
+
     @CrossOrigin(origins = "http://localhost:4200")
     @PostMapping("/register")
     public ResponseEntity<?> registerFavourite(@RequestBody FavouriteMovie favouriteMovie) throws MovieAlreadyExistsException {
         try {
-            responseEntity =  new ResponseEntity<>(favouriteMovieService.registerFavourite(favouriteMovie), HttpStatus.CREATED);
-        }
-        catch(MovieAlreadyExistsException e)
-        {
+            responseEntity = new ResponseEntity<>(favouriteMovieService.registerFavourite(favouriteMovie), HttpStatus.CREATED);
+        } catch (MovieAlreadyExistsException e) {
             throw new MovieAlreadyExistsException();
         }
         return responseEntity;

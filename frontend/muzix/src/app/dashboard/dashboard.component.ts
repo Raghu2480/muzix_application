@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
       return;
     }
     console.log(text);
-    this.router.navigate(['search-items', text])
+    this.router.navigate(['/dashboard/search-items', text])
   }
   getUserByEmail() {
     this.mainService.getUser().subscribe(res => {
