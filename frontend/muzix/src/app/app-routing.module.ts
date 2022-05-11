@@ -40,6 +40,7 @@ const routes: Routes = [
       },
       {
         path: "recommended",
+        // component:RecommedationComponent,
         canActivate: [AuthGuard],
         component: RecommedationComponent
       },
@@ -50,6 +51,7 @@ const routes: Routes = [
       },
       {
         path: "favourite",
+        // component:FavouriteComponent,
         canActivate: [AuthGuard],
         component: FavouriteComponent
       }

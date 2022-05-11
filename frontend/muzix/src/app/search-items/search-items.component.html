@@ -1,4 +1,5 @@
 <app-cards *ngIf="isReady" [movies]="allSearchedMovies"></app-cards>
 <div style="margin-left: 350px; ">
-    <button [disabled]="currentPg<=1" (click)="decreasePage()">Previous Page</button><button [disabled]="currentPg>=33349" (click)="increasePage()">Next Page</button>
+    <button [disabled]="currentPg<=1" (click)="decreasePage()">Previous Page</button><button
+        [disabled]="currentPg>=33349" (click)="increasePage()">Next Page</button>
 </div>

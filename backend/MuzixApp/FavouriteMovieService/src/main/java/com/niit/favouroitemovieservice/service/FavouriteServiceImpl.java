@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class FavouriteServiceImpl implements FavouriteService {
     private FavouriteRepository favouriteRepository;
+    private Favourite favMovie;
     @Autowired
     public FavouriteServiceImpl(FavouriteRepository favouriteRepository) {
         this.favouriteRepository = favouriteRepository;
@@ -20,7 +21,13 @@ public class FavouriteServiceImpl implements FavouriteService {
     public Favourite saveFavourite(Favourite favourite) throws MovieAlreadyExistsException {
         if(favouriteRepository.findById(favourite.getMovieId()).isPresent())
         {
-            throw new MovieAlreadyExistsException();
+            favMovie=findByMovieId(favourite.getMovieId());
+            if(favourite.getEmail().equals(favMovie.getEmail()))
+            {
+                throw new MovieAlreadyExistsException();
+            }
+            System.out.println(favourite);
+            return favouriteRepository.save(favourite);
         }
         System.out.println(favourite);
         return favouriteRepository.save(favourite);

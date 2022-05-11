@@ -31,30 +31,8 @@ export class MainService {
   }
 
   // login register service ts
-  login(data: any) {
+  HttpLogin(data: any) {
     return this.httpClient.post("http://localhost:8085/api/v1/login", data);
   }
 
-  // login service   
-  // getData(LoginForm: any) {
-  //   this.httpClient.get<any>("http://localhost:8085/api/v1/login")
-  //     .subscribe((loggedData: any) => {
-  //       console.log("login logg data");
-  //       console.log(loggedData);
-  //       console.log("------++++++-----");
-  //       this.logdata = loggedData;
-  //       for (this.i = 0; this.i < this.logdata.length; this.i++) {
-  //         if (LoginForm.email === this.logdata[this.i].email && LoginForm.password === this.logdata[this.i].password) {
-  //           this.isLoggedIn=true;
-  //          this.customerId= this.logdata[this.i].email;
-  //          console.log("id of user");
-  //          console.log(this.customerId);
-  //           alert("loggedin!!");
-  //           this.router.navigate(['/', 'dashboard']);
-  //           return;
-  //         }
-  //       }
-  //       alert("login failed");      
-  //     });
-  // }
 }

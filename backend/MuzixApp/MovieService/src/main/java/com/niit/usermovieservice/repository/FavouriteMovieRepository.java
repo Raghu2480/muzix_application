@@ -9,4 +9,5 @@ public interface FavouriteMovieRepository extends MongoRepository<FavouriteMovie
     FavouriteMovie findByMovieId(String movieId);
 //    FavouriteMovie findByEmailId(String email);
 
+    FavouriteMovie findByEmail(String email);
 }

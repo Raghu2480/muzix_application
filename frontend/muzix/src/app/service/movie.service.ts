@@ -56,7 +56,6 @@ export class MovieService {
     let recommendedUrl=`https://api.themoviedb.org/3/movie/${recMovieId}/recommendations?api_key=${this.MyAPIKey}&language=en-US&page=1`;
     return this.http.get(recommendedUrl);
   }
-
   addMovieToFavourites(movieId:number,movieName:any){    
     this.favMovieObj.movieId=movieId;
     this.favMovieObj.movieName=movieName;
@@ -64,11 +63,9 @@ export class MovieService {
     console.log(this.favMovieObj);
     return this.http.post("http://localhost:8081/api/v3/register",this.favMovieObj);
   }
-
   getFavouriteMoviesByEmail()
   {
     return this.http.get("http://localhost:8086/api/v4/favourite/"+this.email)
   }
   
 }
-//https://stackroute-space.slack.com//api.themoviedb.org/3/movie/$%7Bid%7D?api_key=MY_API_KEY&append_to_response=credits
