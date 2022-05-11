@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]),
     confirmPassword: new FormControl('', Validators.required),
     profilePicture: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', Validators.required)
+    phoneNumber: new FormControl('', [Validators.required, Validators.pattern("[789]\\d{9}")])
   });
   get getUserName() { return this.RegistrationForm.controls['userName']; }
   get getEmail() { return this.RegistrationForm.controls['email']; }
