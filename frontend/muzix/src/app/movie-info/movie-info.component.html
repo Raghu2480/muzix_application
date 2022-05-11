@@ -33,10 +33,20 @@
                             <mat-icon>Recommend</mat-icon>
                         </a>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 2e588481b4416a563e6a7c25c269e1a3e29e4866
                         <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="font-size: 15px;">
                             <strong>Success !!!</strong> Movie added to your Favourites
+                            <button (click)="closeAlert()" type="button" class="close" data-dismis="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <div *ngIf="warningAlert" class="alert alert-danger alert-dismissible fade show" role="alert" style="font-size: 15px;">
+                            <strong>Warning !!!</strong> Movie already added to your Favourites
                             <button (click)="closeAlert()" type="button" class="close" data-dismis="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
