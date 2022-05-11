@@ -29,11 +29,11 @@
                         <a mat-button matTooltip="Add to Favorite" (click)="addToFavourite(selectedMovieData)">
                             <mat-icon>favorite</mat-icon>
                         </a>
-                        <a routerLink="/recommended" mat-button matTooltip="View Recommended Movies">
+                        <a routerLink="/dashboard/recommended" mat-button matTooltip="View Recommended Movies">
                             <mat-icon>Recommend</mat-icon>
                         </a>
 
-                        
+
 
                         <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert" style="font-size: 15px;">
                             <strong>Success !!!</strong> Movie added to your Favourites

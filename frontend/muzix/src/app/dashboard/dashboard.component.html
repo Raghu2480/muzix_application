@@ -1,6 +1,5 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar>
             <a routerLink="/dashboard/home" style="text-decoration: none;color: white;">
                 <mat-icon>home</mat-icon>Home
@@ -17,13 +16,12 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
             <span>Muzix</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)" style="display: flex;">
-                <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search Movie By Name"
-                    aria-label="Search" #searchTxt>
+                <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search Movie By Name" aria-label="Search" #searchTxt>
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <div style="margin-left: 350px;display:flex;">
@@ -38,9 +36,9 @@
                 <mat-icon>login</mat-icon>Sign Up
             </a>
             <mat-menu #menu="matMenu">
-                <a mat-menu-item href="#">
+                <!-- <a mat-menu-item href="#">
                     <mat-icon>perm_identity</mat-icon>Update Profile
-                </a>
+                </a> -->
                 <a *ngIf="isLogIn" mat-menu-item (click)="loggedOut()">
                     <mat-icon>logout</mat-icon>Log Out
                 </a>
