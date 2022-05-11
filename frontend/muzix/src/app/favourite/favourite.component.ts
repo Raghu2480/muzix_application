@@ -7,31 +7,28 @@ import { MovieService } from '../service/movie.service';
   styleUrls: ['./favourite.component.css']
 })
 export class FavouriteComponent implements OnInit {
-  allFavouriteMovies:any=[];
-  favourites:any=[];
-  
-  constructor(private movieService:MovieService) {
-    
-   }
+  allFavouriteMovies: any = [];
+  favourites: any = [];
+  constructor(private movieService: MovieService) {  }
 
   ngOnInit(): void {
     this.getFavouriteMovies();
-    console.log(this.favourites); 
-    
+    console.log(this.favourites);
+
   }
-  getFavouriteMovies(){
-    this.movieService.getFavouriteMoviesByEmail().subscribe(res=>{
-      this.allFavouriteMovies=res;
-      this.allFavouriteMovies.forEach((s:any)=>{
-        this.movieService.getAllFavouriteMoviesFromApi(+s.movieId).subscribe((response)=>{
+  getFavouriteMovies() {
+    this.movieService.getFavouriteMoviesByEmail().subscribe(res => {
+      this.allFavouriteMovies = res;
+      this.allFavouriteMovies.forEach((s: any) => {
+        this.movieService.getAllFavouriteMoviesFromApi(+s.movieId).subscribe((response) => {
           // console.log("hi");
           // console.log(response);
-          this.favourites.push(response) ;
+          this.favourites.push(response);
         });
       })
     });
   }
-  movieDetails(data:any){
+  movieDetails(data: any) {
     this.movieService.selectedMovie(data);
   }
 }

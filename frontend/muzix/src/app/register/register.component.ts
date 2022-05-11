@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     }
     else {
       console.log("before");
-      this.registerS.registerBackend(this.RegistrationForm.value).subscribe();
+      this.registerS.registerUser(this.RegistrationForm.value).subscribe();
       console.log("Registerd successfully");   
       console.log("after");   
     }

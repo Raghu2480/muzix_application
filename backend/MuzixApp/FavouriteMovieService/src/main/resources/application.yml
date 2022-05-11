@@ -3,7 +3,7 @@ server:
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/favouritemovies_db
+      uri: mongodb://localhost:27017/favourite_movies_db
   application:
     name: user-favourite-movie-service
 eureka:

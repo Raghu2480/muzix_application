@@ -8,61 +8,31 @@ import { Observable } from 'rxjs';
 })
 export class MainService {
 
-  constructor(private httpClient:HttpClient,private router: Router) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
   redirectUrl: string = "";
   isLoggedIn: boolean = false;
   logdata: any;
-  customerId:any;
+  customerId: any;
   i: any;
-  email:any;
+  email: any;
 
   // register service
-  registerBackend(RegistrationForm: any) {
+  registerUser(RegistrationForm: any) {
     console.log(" services works..");
     console.log(RegistrationForm);
     const registerObservable = this.httpClient.post<any>('http://localhost:8081/api/v2/register', RegistrationForm);
-    // const registerObservable = this.httpClient.post<any>('http://localhost:3000/registers', RegistrationForm);
-
-    alert("backend Registered Successfully!!!");
-    this.router.navigate(['/', 'login']);
+    alert("Registered Successfully!!!");
+    this.router.navigate(['/auth/login']);
     return registerObservable;
   }
-  getUser(){
-    return this.httpClient.get<any>("http://localhost:8081/api/v2/registers/"+this.email);
+
+  getUser() {
+    return this.httpClient.get<any>("http://localhost:8081/api/v2/registers/" + this.email);
   }
 
   // login register service ts
-  login(data:any){
-    return this.httpClient.post("http://localhost:8085/api/v1/login",data);
+  HttpLogin(data: any) {
+    return this.httpClient.post("http://localhost:8085/api/v1/login", data);
   }
 
-
-  // login service
-  getData(LoginForm: any) {
-    this.httpClient.get<any>("http://localhost:8085/api/v1/login")
-      .subscribe((loggedData: any) => {
-        console.log("login logg data");
-        console.log(loggedData);
-        console.log("------++++++-----");
-        this.logdata = loggedData;
-        for (this.i = 0; this.i < this.logdata.length; this.i++) {
-          if (LoginForm.email === this.logdata[this.i].email && LoginForm.password === this.logdata[this.i].password) {
-            this.isLoggedIn=true;
-           this.customerId= this.logdata[this.i].email;
-           console.log("id of user");
-           console.log(this.customerId);
-            alert("loggedin!!");
-            this.router.navigate(['/', 'dashboard']);
-            return;
-          }
-        }
-        alert("login failed");      
-      });
-  }
-
-  // logout service
-  logout(){
-    this.isLoggedIn=false;
-    this.router.navigate(['/','login']);
-  }
 }
