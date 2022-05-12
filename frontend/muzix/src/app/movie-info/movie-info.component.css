@@ -4,33 +4,30 @@
 }
 
 #bgimg {
-  /* background-image: url("https://mdbootstrap.com/img/new/fluid/city/018.jpg");
-    height: 100vh; */
+  
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
-  /* background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)); */
-  /* background-image: linear-gradient(rgb(235, 0, 0), rgba(46, 0, 154, 0.847)); */
-  /* opacity: 0.4;
-  filter: alpha(opacity=40); */
-  /* For IE8 and earlier */
+  
 }
 #infoCard {
   opacity: 1;
   display: flex;
+  
 }
 
 .cardContent {
-  /* opacity: 0.2; */
+  
   background: linear-gradient(rgb(61, 61, 61), rgb(250, 142, 142)); 
   color: white;
-  /* font-weight: bolder; */
+  
   font-size: 40%;
+
+  
 }
 mat-card-subtitle{
  
   font-weight: bolder;
   font-size: large;
-
 
 }

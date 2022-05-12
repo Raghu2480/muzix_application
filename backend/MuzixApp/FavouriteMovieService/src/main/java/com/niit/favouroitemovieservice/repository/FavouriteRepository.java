@@ -10,4 +10,5 @@ import java.util.List;
 public interface FavouriteRepository extends MongoRepository<Favourite, String> {
     Favourite findByMovieId(String movieId);
     List<Favourite> findAllMoviesByEmail(String email);
+    boolean deleteByMovieIdAndEmail(String movieId,String email);
 }

@@ -9,7 +9,7 @@ import { MainService } from '../service/main.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private registerS:MainService) { }
+  constructor(private mainService:MainService) { }
 
   ngOnInit(): void {
   }
@@ -35,10 +35,9 @@ export class RegisterComponent implements OnInit {
       alert("Your password confirm password should match");
     }
     else {
-      console.log("before");
-      this.registerS.registerUser(this.RegistrationForm.value).subscribe();
-      console.log("Registerd successfully");   
-      console.log("after");   
+      this.mainService.registerUser(this.RegistrationForm.value).subscribe(res=>{
+        console.log(res);
+      });  
     }
   }
 

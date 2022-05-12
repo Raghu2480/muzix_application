@@ -22,7 +22,7 @@
                         </mat-card-subtitle>
                         <mat-card-subtitle>vote_count :&nbsp;&nbsp;&nbsp; {{selectedMovieData.vote_count}}
                         </mat-card-subtitle>
-                        <div style="display:flex;">
+                        <div fxLayout="row wrap" fxLayoutGap="2px grid">
                             <mat-card-subtitle> genre_ids :&nbsp;&nbsp;&nbsp;</mat-card-subtitle>
                             <mat-card-subtitle *ngFor="let genre of particularMovieGenre">
                                 {{genre.name}}&nbsp;.&nbsp;
@@ -36,8 +36,6 @@
                         </a>
                         <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert"
                             style="font-size: 15px;">
-                            
-
 
                             <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert"
                                 style="font-size: 15px;">
@@ -48,7 +46,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
 
-                            </div> <!-- <button style="font-size: 15px;">View Recommended Movies</button> -->
+                            </div> 
 
                         </div>
 
@@ -61,7 +59,7 @@
                             </button>
                         </div>
 
-                        <!-- <button style="font-size: 15px;">View Recommended Movies</button> -->
+
                     </mat-card>
                 </div>
             </div>

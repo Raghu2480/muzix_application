@@ -2,6 +2,7 @@ package com.niit.favouroitemovieservice.service;
 
 import com.niit.favouroitemovieservice.domain.Favourite;
 import com.niit.favouroitemovieservice.exception.MovieAlreadyExistsException;
+import com.niit.favouroitemovieservice.exception.MovieNotFoundException;
 import com.niit.favouroitemovieservice.repository.FavouriteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -48,7 +49,14 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     @Override
     public List<Favourite> findMoviesByEmail(String email) {
-
         return favouriteRepository.findAllMoviesByEmail(email);
+    }
+
+    @Override
+    public boolean deleteMovieFromFavourites(String movieId,String email) throws MovieNotFoundException {
+//        if()
+
+        favouriteRepository.deleteByMovieIdAndEmail(movieId,email);
+        return true;
     }
 }

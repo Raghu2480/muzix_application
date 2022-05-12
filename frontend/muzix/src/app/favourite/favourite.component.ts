@@ -31,4 +31,11 @@ export class FavouriteComponent implements OnInit {
   movieDetails(data: any) {
     this.movieService.selectedMovie(data);
   }
+  deleteMovie(data:any) {
+    // console.log(data.id);
+    this.movieService.deleteFavouriteMovie(data.id).subscribe(res=>{
+      console.log(res);
+      this.ngOnInit();
+    })
+  }
 }

@@ -1,5 +1,5 @@
 <app-cards *ngIf="isReady" [movies]="allSearchedMovies"></app-cards>
-<div style="margin-left: 350px; ">
-    <button [disabled]="currentPg<=1" (click)="decreasePage()">Previous Page</button><button
-        [disabled]="currentPg>=33349" (click)="increasePage()">Next Page</button>
+<div style="display: flex;">
+    <button [disabled]="currentPg<=1" (click)="decreasePage()" mat-raised-button style="margin-left: auto;"><mat-icon>navigate_before</mat-icon>Previous Page</button>
+    <button [disabled]="currentPg>=33349" (click)="increasePage()" mat-raised-button style="margin-right : auto;">Next Page<mat-icon>navigate_next</mat-icon></button>
 </div>

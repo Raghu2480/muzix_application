@@ -10,11 +10,12 @@
 
 mat-card {
     width: 400px;
-    height: 700px;
+    height: 750px;
 }
 
 mat-card-content {
     margin-top: 10px;
+    
 }
 
 .content {

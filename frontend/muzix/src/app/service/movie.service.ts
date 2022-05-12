@@ -14,6 +14,7 @@ export class MovieService {
   recommendedMovieId:any;
   email:any;
   favMovieObj:any={};
+  
   // x="550";
   // y:number=+this.x;
 
@@ -67,5 +68,8 @@ export class MovieService {
   {
     return this.http.get("http://localhost:8086/api/v4/favourite/"+this.email)
   }
-  
+  deleteFavouriteMovie(delMovieId:String){
+    
+    return this.http.delete("http://localhost:8086/api/v4/deleteFavourite/"+delMovieId+"/"+this.email);
+  }
 }

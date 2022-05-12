@@ -61,7 +61,7 @@
                                     </div>
                                     <span class="text-danger"
                                         *ngIf="(getPhoneNumber.errors?.['pattern']) || (getPhoneNumber.invalid && getPhoneNumber.dirty) ">Only
-                                        10 Digits </span>
+                                        10 Digits</span>
                                     <span class="text-danger "
                                         *ngIf="getPhoneNumber.invalid && getPhoneNumber.touched ">Mobile Number Is
                                         Required </span>
@@ -82,7 +82,7 @@
 
                             </div>
 
-                            <div class="mt-4 pt-2 ">
+                            <div class="mt-4 pt-2">
                                 <button class="btn btn-primary btn-lg " type="submit "
                                     [disabled]="!RegistrationForm.valid ">Register</button>
                             </div>
