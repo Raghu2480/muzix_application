@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { MovieService } from '../service/movie.service';
 export class FavouriteComponent implements OnInit {
   allFavouriteMovies: any = [];
   favourites: any = [];
-  constructor(private movieService: MovieService) {  }
+  constructor(private movieService: MovieService,private router:Router) {  }
 
   ngOnInit(): void {
     this.getFavouriteMovies();
@@ -40,5 +41,8 @@ export class FavouriteComponent implements OnInit {
 
     },err=>{
     })
+    this.router.navigate(["dashboard/home"]);
+    alert("Deleted");
+    // this.router.navigate(["dashboard/favourite"]);
   }
 }
