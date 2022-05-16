@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
     password: new FormControl('', [Validators.required, Validators.minLength(4), Validators.maxLength(12)]),
     confirmPassword: new FormControl('', Validators.required),
     profilePicture: new FormControl('', Validators.required),
+    gender:new FormControl('',Validators.required),
     phoneNumber: new FormControl('', [Validators.required, Validators.pattern("[789]\\d{9}")])
   });
   get getUserName() { return this.RegistrationForm.controls['userName']; }
@@ -28,7 +29,7 @@ export class RegisterComponent implements OnInit {
   get getConfirmPassword() { return this.RegistrationForm.controls['confirmPassword']; }
   get getPhoneNumber() { return this.RegistrationForm.controls['phoneNumber']; }
   get getProfilePicture(){ return this.RegistrationForm.controls['profilePicture']; }
-
+  get getGender(){return this.RegistrationForm.controls['gender'];}
   OnRegister() {
     console.table(this.RegistrationForm.value);
     if (this.getPassword.value != this.getConfirmPassword.value) {

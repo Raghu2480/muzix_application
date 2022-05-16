@@ -16,6 +16,8 @@ export class DashboardComponent implements OnInit {
   user: any;
   userName: any;
   userProfileImg: any;
+  genderMale:any;
+  genderFemale:any;
   isLogIn: any = this.authS._isLoggedIn;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -49,6 +51,12 @@ export class DashboardComponent implements OnInit {
     this.mainService.getUser().subscribe(res => {
       this.user = res;
       this.userName = this.user.userName;
+      if(this.user.gender=="male"){
+        this.genderMale=this.user.gender;
+      }
+      else{
+        this.genderFemale=this.user.gender;
+      }
       this.userProfileImg = this.user.profilePicture;
       console.log(this.user);
     });
