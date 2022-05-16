@@ -4,8 +4,9 @@
             <a *ngIf="!isLogIn" mat-menu-item routerLink="/auth/login">
                 <mat-icon>login</mat-icon>Login
             </a>
-            <img class="avatar" *ngIf="isLogIn" src="./assets/avatar.png">
-            <h3>{{userName}}</h3>
+            <img class="avatar" *ngIf="isLogIn && genderMale" src="./assets/avatar.png">
+            <img class="avatar" *ngIf="isLogIn && genderFemale" src="./assets/femaleAvatar.jpg">
+            <h3>{{userName}}</h3><br>
         </mat-toolbar>
         <mat-nav-list>
             <a mat-list-item routerLink="/dashboard/home" >

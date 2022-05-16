@@ -28,7 +28,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { RecommedationComponent } from './recommedation/recommedation.component';
 import { FavouriteComponent } from './favourite/favourite.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +64,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatFormFieldModule,
     MatButtonModule,
     MatTooltipModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
