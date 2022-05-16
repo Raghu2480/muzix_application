@@ -9,8 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
-
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/v4/")
@@ -25,19 +23,6 @@ public class FavouriteController {
     public ResponseEntity<?> saveFavourite(@RequestBody Favourite favourite) throws MovieAlreadyExistsException {
         return new ResponseEntity<>(favouriteService.saveFavourite(favourite), HttpStatus.CREATED);
     }
-//    @PostMapping("/login")
-//    public ResponseEntity<?> loginUser(@RequestBody Favourite favourite) throws MovieAlreadyExistsException
-//    {
-//        Favourite favourite1 = favouriteService.findByMovieId(favourite.getEmail());
-////
-////        if(favourite1==null)
-////        {
-////            throw new MovieAlreadyExistsException();
-////        }
-////        Map<String,String> map = securityTokenGenerator.generateToken(user);
-//        return new ResponseEntity<>(favourite1,HttpStatus.OK);
-//    }
-
     @GetMapping("favourite/{email}")
     public ResponseEntity<?> getFavouriteMoviesByEmail(@PathVariable String email) throws Exception
     {
@@ -49,7 +34,8 @@ public class FavouriteController {
     {
         try
         {
-            responseEntity=new ResponseEntity<>(favouriteService.deleteMovieFromFavourites(movieId,email),HttpStatus.OK);
+           favouriteService.deleteMovieFromFavourites(movieId,email);
+           responseEntity=new ResponseEntity<>(HttpStatus.OK);
         }
         catch(MovieNotFoundException e){
             throw new MovieNotFoundException();

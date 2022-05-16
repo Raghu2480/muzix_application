@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { Router } from '@angular/router';
+=======
+import {  Router } from '@angular/router';
+>>>>>>> 763949c9ed90fa5ce1b4a2d4bb5ae29813491e90
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -35,6 +39,7 @@ export class FavouriteComponent implements OnInit {
   deleteMovie(data:any) {
     // console.log(data.id);
     this.movieService.deleteFavouriteMovie(data.id).subscribe(res=>{
+<<<<<<< HEAD
       console.log("deleting in favourite service ");
       console.log(res); 
     },err=>{
@@ -48,6 +53,17 @@ export class FavouriteComponent implements OnInit {
     })
     this.router.navigate(["dashboard/home"]);
     
+=======
+      console.log(res);
+      this.ngOnInit();
+      console.log("delete movies subscribed");
+
+    },err=>{
+    })
+    this.router.navigate(["dashboard/home"]);
+    alert("Deleted");
+    // this.router.navigate(["dashboard/favourite"]);
+>>>>>>> 763949c9ed90fa5ce1b4a2d4bb5ae29813491e90
   }
   
 }

@@ -2,7 +2,7 @@
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar style="display:list-item ;display: flex;">
             <a *ngIf="!isLogIn" mat-menu-item routerLink="/auth/login">
-                <mat-icon>login</mat-icon>Sign Up
+                <mat-icon>login</mat-icon>Login
             </a>
             <img class="avatar" *ngIf="isLogIn" src="./assets/avatar.png">
             <h3>{{userName}}</h3>
