@@ -1,3 +1,6 @@
+<!-- <div style="margin-left:500px;position: fixed;">
+    <h2>showing results for {{searchItem}}</h2>
+</div> -->
 <app-cards *ngIf="isReady" [movies]="allSearchedMovies"></app-cards>
 <div style="display: flex;">
     <button [disabled]="currentPg<=1" (click)="decreasePage()" mat-raised-button style="margin-left: auto;"><mat-icon>navigate_before</mat-icon>Previous Page</button>

@@ -17,14 +17,14 @@ export class SearchItemsComponent implements OnInit {
     this.route.params.subscribe(param => {
       if (param['text']) {
         this.searchItem = param['text'];
-        this.buscarMovie();
+        this.searchRequiredMovie();
       }
     })
   }
 
   ngOnInit() {
   }
-  buscarMovie() {
+  searchRequiredMovie() {
     this.movieS.searchMovie(this.searchItem,this.currentPg).subscribe(resp=>{
       this.searchedMovies=resp;
       this.allSearchedMovies=this.searchedMovies.results;
@@ -36,10 +36,10 @@ export class SearchItemsComponent implements OnInit {
   }
   decreasePage(){
     this.currentPg--;
-    this.buscarMovie();
+    this.searchRequiredMovie();
   }
   increasePage(){
     this.currentPg++;
-    this.buscarMovie();
+    this.searchRequiredMovie();
   }
 }
