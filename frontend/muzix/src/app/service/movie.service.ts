@@ -69,7 +69,9 @@ export class MovieService {
     return this.http.get("http://localhost:8086/api/v4/favourite/"+this.email)
   }
   deleteFavouriteMovie(delMovieId:String){
-    
     return this.http.delete("http://localhost:8086/api/v4/deleteFavourite/"+delMovieId+"/"+this.email);
+  }
+  deleteFavouriteFromMovieService(delMovieId:String){
+    return this.http.delete("http://localhost:8081/api/v3/deleteFavourite/"+delMovieId+"/"+this.email);
   }
 }

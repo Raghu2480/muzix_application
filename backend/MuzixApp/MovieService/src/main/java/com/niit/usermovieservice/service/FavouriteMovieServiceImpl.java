@@ -4,6 +4,7 @@ import com.niit.rabbitmq.domain.FavouriteDTO;
 import com.niit.usermovieservice.config.Producer;
 import com.niit.usermovieservice.domain.FavouriteMovie;
 import com.niit.usermovieservice.exception.MovieAlreadyExistsException;
+import com.niit.usermovieservice.exception.MovieNotFoundException;
 import com.niit.usermovieservice.repository.FavouriteMovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,6 +51,13 @@ public class FavouriteMovieServiceImpl implements FavouriteMovieService{
         }
         return favouriteMovie;
     }
+
+    @Override
+    public boolean deleteMovieFromFavourites(String movieId, String email) throws MovieNotFoundException {
+        favouriteMovieRepository.deleteByMovieIdAndEmail(movieId,email);
+        return true;
+    }
+
     public Optional<FavouriteMovie> getFavouriteMovieByMovieId(String movieId){
         return favouriteMovieRepository.findById(movieId);
     }
