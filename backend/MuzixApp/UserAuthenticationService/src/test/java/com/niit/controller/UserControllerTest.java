@@ -41,9 +41,9 @@ public class UserControllerTest {
 
     @BeforeEach
     public void setup(){
-        user1=new User("dkpharma13@gmail.com","123456");
-        user2=new User("raghu123@gmail.com","123456");
-        user3=new User("kamran123@gmail.com","123");
+        user1=new User("dkpharma13@gmail.com","123456","male");
+        user2=new User("raghu123@gmail.com","123456","male");
+        user3=new User("sunnyleone123@gmail.com","123","female");
         userList= Arrays.asList(user1,user2,user3);
         mockMvc = MockMvcBuilders.standaloneSetup(userController).build();
     }

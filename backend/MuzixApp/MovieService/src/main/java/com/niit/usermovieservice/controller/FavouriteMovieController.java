@@ -48,6 +48,8 @@ public class FavouriteMovieController {
         {
             responseEntity=new ResponseEntity("Error !!! Try after sometime.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+        System.out.println("message");
+        System.out.println(responseEntity);
         return responseEntity;
     }
 }
