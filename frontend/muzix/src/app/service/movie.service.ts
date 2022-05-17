@@ -9,6 +9,7 @@ export class MovieService {
   private MyAPIKey: string = "906a6c7099bc82b8424ff2afe6fa712b"; 
   // private urlMovieDB: string = "https://api.themoviedb.org/3"
   constructor(private http: HttpClient,private router:Router) {}
+  movieName:string | undefined;
   movieInfo: any;
   currentPage:number=1;
   recommendedMovieId:any;

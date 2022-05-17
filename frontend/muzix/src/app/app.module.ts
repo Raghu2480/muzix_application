@@ -41,7 +41,7 @@ import {MatSelectModule} from '@angular/material/select';
     MovieInfoComponent,
     SearchItemsComponent,
     RecommedationComponent,
-    FavouriteComponent,
+    FavouriteComponent
   ],
   imports: [
     BrowserModule,

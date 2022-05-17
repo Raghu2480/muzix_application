@@ -40,17 +40,17 @@ const routes: Routes = [
       },
       {
         path: "recommended",
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         component: RecommedationComponent
       },
       {
         path: "movie-info",
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         component: MovieInfoComponent
       },
       {
         path: "favourite",
-        canActivate: [AuthGuard],
+        // canActivate: [AuthGuard],
         component: FavouriteComponent
       }
     ]

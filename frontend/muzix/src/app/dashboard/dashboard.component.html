@@ -1,5 +1,6 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar style="display:list-item ;display: flex;">
             <a *ngIf="!isLogIn" mat-menu-item routerLink="/auth/login">
                 <mat-icon>login</mat-icon>Login
@@ -8,18 +9,18 @@
             <img class="avatar" *ngIf="isLogIn && genderFemale" src="./assets/femaleAvatar.jpg">
             <h3>{{userName}}</h3><br>
         </mat-toolbar>
-        <mat-nav-list>
-            <a mat-list-item routerLink="/dashboard/home" >
+        <mat-nav-list >
+            <a class="onSelect" mat-list-item routerLink="/dashboard/home" [routerLinkActive]="['is-active']">
                 <mat-icon>home</mat-icon>Home
             </a>
-            <a mat-list-item routerLink="favourite">
+            <a class="onSelect" mat-list-item routerLink="favourite" [routerLinkActive]="['is-active']">
                 <mat-icon>favorite</mat-icon> Favourite Movies
             </a>
-            <a mat-list-item routerLink="recommended">
+            <a  class="onSelect" mat-list-item routerLink="recommended"  [routerLinkActive]="['is-active']">
                 <mat-icon>recommend</mat-icon> Recommended
             </a>
-            
-            <button mat-button [matMenuTriggerFor]="menu">
+
+            <button class="onSelect" mat-button [matMenuTriggerFor]="menu">
                 <mat-icon>settings</mat-icon> Settings
             </button>
             <mat-menu #menu="matMenu">
@@ -43,16 +44,19 @@
     </mat-sidenav>
     <mat-sidenav-content style="justify-content: space-evenly;">
         <mat-toolbar color="primary">
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+                *ngIf="isHandset$ | async">
                 <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
             <span>Muzix</span>&nbsp;
-            <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)" style="display: flex;margin: auto;">
-                <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search Movie By Name" aria-label="Search" style="width: 150px ;" #searchTxt>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form class="form-inline my-2 my-lg-0" (ngSubmit)="searchingItems(searchTxt.value)"
+                style="display: flex;margin: auto;">
+                <input class="form-control my-2 mr-sm-1" type="search" placeholder="Search Movie By Name"
+                    aria-label="Search" style="width: 150px ;" #searchTxt>
+                <button class="btn btn-outline-success onSelect my-2 my-sm-0" type="submit">Search</button>
             </form>
         </mat-toolbar>
-        
+
         <!-- Add Content Here -->
         <!-- <app-home></app-home> -->
         <router-outlet></router-outlet>
