@@ -22,4 +22,18 @@
     height: 60px;
     border-radius: 50%;
     margin: 10px;
-   }
+}
+
+/* #onSelect{
+    background-color: red;
+} */
+
+.onSelect:focus{
+    background-color: white;
+    color: black;
+}
+
+.is-active {
+    background-color: white;
+    color: black;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecommedationComponent } from '../recommedation/recommedation.component';
 import { MovieService } from '../service/movie.service';
 
 @Component({
@@ -14,11 +15,11 @@ export class MovieInfoComponent implements OnInit {
   favouriteMovieName: any;
   particularMovieGenre: any;
   alert: boolean = false;
-  warningAlert:boolean =false;
+  warningAlert: boolean = false;
   constructor(private mviS: MovieService) { }
 
   ngOnInit(): void {
-    
+
     console.log("-------------------");
     this.selectedMovieData = this.mviS.movieInfo;
     console.log(this.selectedMovieData);
@@ -41,13 +42,16 @@ export class MovieInfoComponent implements OnInit {
       this.alert = true;
     },
       err => {
-       // alert("this movie already added to your favourite list");
-        this.warningAlert=true;
+        // alert("this movie already added to your favourite list");
+        this.warningAlert = true;
       });
-    
+
+  }
+  passRecommended(movieTitle: string) {
+    this.mviS.movieName = movieTitle;
   }
   closeAlert() {
     this.alert = false;
-    this.warningAlert=false;
+    this.warningAlert = false;
   }
 }
